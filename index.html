@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Moving Out Sale – Ardian</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', sans-serif; background: #f5f5f5; color: #222; }
+
+    header {
+      background: #1a1a2e; color: white;
+      padding: 2rem; text-align: center;
+    }
+    header h1 { font-size: 2rem; }
+    header p { margin-top: 0.5rem; opacity: 0.75; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .card {
+      background: white; border-radius: 12px;
+      overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: transform 0.2s;
+    }
+    .card:hover { transform: translateY(-4px); }
+
+    .card img {
+      width: 100%; height: 200px;
+      object-fit: cover;
+    }
+    .card-body { padding: 1rem; }
+    .card-body h2 { font-size: 1.1rem; }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 10px; border-radius: 20px;
+      font-size: 0.75rem; font-weight: 600;
+      margin: 0.4rem 0;
+    }
+    .good    { background: #d4edda; color: #155724; }
+    .fair    { background: #fff3cd; color: #856404; }
+    .sold    { background: #f8d7da; color: #721c24; }
+
+    .price { font-size: 1.2rem; font-weight: bold; color: #1a1a2e; }
+    .desc  { font-size: 0.9rem; color: #555; margin: 0.4rem 0 0.8rem; }
+
+    .wa-btn {
+      display: block; text-align: center;
+      background: #25D366; color: white;
+      padding: 0.6rem; border-radius: 8px;
+      text-decoration: none; font-weight: 600;
+    }
+    .wa-btn:hover { background: #1ebe5d; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🏠 Moving Out Sale</h1>
+  <p>Semua barang second hand, kondisi jelas. Hubungi via WhatsApp!</p>
+</header>
+
+<div class="grid">
+
+  <!-- ✏️ DUPLIKAT CARD INI UNTUK SETIAP BARANG -->
+  <div class="card">
+    <img src="foto/meja.jpg" alt="Meja Belajar" />
+    <div class="card-body">
+      <h2>Meja Belajar IKEA Linnmon</h2>
+      <span class="badge good">Kondisi: Baik</span>
+      <p class="price">Rp 350.000</p>
+      <p class="desc">Ukuran 120x60cm, bekas pakai 2 tahun, tidak ada goresan signifikan.</p>
+      <a class="wa-btn"
+         href="https://wa.me/46NOMORMU?text=Halo%20Ardian%2C%20saya%20tertarik%20dengan%20Meja%20Belajar%20IKEA%20Linnmon"
+         target="_blank">💬 Hubungi via WhatsApp</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="foto/kursi.jpg" alt="Kursi Gaming" />
+    <div class="card-body">
+      <h2>Kursi Gaming</h2>
+      <span class="badge fair">Kondisi: Cukup</span>
+      <p class="price">Rp 500.000</p>
+      <p class="desc">Ada sedikit lecet di sisi kiri, fungsi masih 100%, lumbar support masih oke.</p>
+      <a class="wa-btn"
+         href="https://wa.me/46NOMORMU?text=Halo%20Ardian%2C%20saya%20tertarik%20dengan%20Kursi%20Gaming"
+         target="_blank">💬 Hubungi via WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- Contoh barang TERJUAL -->
+  <div class="card" style="opacity:0.5; pointer-events:none;">
+    <img src="foto/lampu.jpg" alt="Lampu Meja" />
+    <div class="card-body">
+      <h2>Lampu Meja LED</h2>
+      <span class="badge sold">TERJUAL</span>
+      <p class="price">Rp 150.000</p>
+      <p class="desc">Sudah terjual.</p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2025 Ardian Candra · ardiancandra.com · Moving Out Sale</p>
+</footer>
+
+</body>
+</html>

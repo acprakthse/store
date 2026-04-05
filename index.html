@@ -26,7 +26,6 @@
       cursor: crosshair;
     }
 
-    /* ── NOISE TEXTURE OVERLAY ── */
     body::before {
       content: '';
       position: fixed;
@@ -37,7 +36,6 @@
       opacity: 0.5;
     }
 
-    /* ── ABSTRACT BG BLOBS ── */
     .bg-blob {
       position: fixed;
       border-radius: 50% 40% 60% 30% / 50% 60% 40% 50%;
@@ -46,377 +44,251 @@
       z-index: 0;
       animation: morphBlob 8s ease-in-out infinite alternate;
     }
-    .bg-blob:nth-child(1) { width: 600px; height: 500px; background: var(--red);    top: -150px; left: -200px; animation-delay: 0s; }
-    .bg-blob:nth-child(2) { width: 500px; height: 600px; background: var(--blue);   bottom: -200px; right: -150px; animation-delay: -3s; }
-    .bg-blob:nth-child(3) { width: 400px; height: 350px; background: var(--yellow); top: 30%; left: 40%; animation-delay: -5s; }
-
+    .bg-blob:nth-child(1) { width:600px;height:500px;background:var(--red);top:-150px;left:-200px;animation-delay:0s }
+    .bg-blob:nth-child(2) { width:500px;height:600px;background:var(--blue);bottom:-200px;right:-150px;animation-delay:-3s }
+    .bg-blob:nth-child(3) { width:400px;height:350px;background:var(--yellow);top:30%;left:40%;animation-delay:-5s }
     @keyframes morphBlob {
-      0%   { border-radius: 50% 40% 60% 30% / 50% 60% 40% 50%; transform: scale(1) rotate(0deg); }
-      50%  { border-radius: 30% 60% 40% 70% / 60% 30% 70% 40%; transform: scale(1.05) rotate(5deg); }
-      100% { border-radius: 60% 30% 50% 40% / 40% 70% 30% 60%; transform: scale(0.95) rotate(-3deg); }
+      0%   { border-radius:50% 40% 60% 30%/50% 60% 40% 50%;transform:scale(1) rotate(0deg) }
+      50%  { border-radius:30% 60% 40% 70%/60% 30% 70% 40%;transform:scale(1.05) rotate(5deg) }
+      100% { border-radius:60% 30% 50% 40%/40% 70% 30% 60%;transform:scale(0.95) rotate(-3deg) }
     }
 
-    /* ── HEADER ── */
-    header {
-      position: relative;
-      z-index: 10;
-      padding: 4rem 2rem 2rem;
-      text-align: center;
-    }
-
-    .header-stamp {
-      display: inline-block;
-      position: relative;
-    }
-
+    header { position:relative;z-index:10;padding:4rem 2rem 2rem;text-align:center }
+    .header-stamp { display:inline-block;position:relative }
     .header-stamp h1 {
-      font-family: 'Caveat', cursive;
-      font-size: clamp(3.5rem, 9vw, 7rem);
-      font-weight: 700;
-      line-height: 0.9;
-      color: var(--ink);
-      position: relative;
-      z-index: 2;
+      font-family:'Caveat',cursive;font-size:clamp(3.5rem,9vw,7rem);
+      font-weight:700;line-height:0.9;color:var(--ink);position:relative;z-index:2
     }
-
-    /* Splat behind title */
     .header-stamp::before {
-      content: '';
-      position: absolute;
-      inset: -20px -40px;
-      background: var(--yellow);
-      clip-path: polygon(5% 20%, 15% 0%, 30% 10%, 50% 0%, 70% 8%, 85% 0%, 100% 15%, 95% 35%, 100% 55%, 90% 70%, 100% 85%, 85% 100%, 65% 92%, 45% 100%, 25% 93%, 10% 100%, 0% 85%, 8% 65%, 0% 45%, 5% 25%);
-      z-index: 1;
-      animation: wiggle 4s ease-in-out infinite alternate;
+      content:'';position:absolute;inset:-20px -40px;background:var(--yellow);
+      clip-path:polygon(5% 20%,15% 0%,30% 10%,50% 0%,70% 8%,85% 0%,100% 15%,95% 35%,100% 55%,90% 70%,100% 85%,85% 100%,65% 92%,45% 100%,25% 93%,10% 100%,0% 85%,8% 65%,0% 45%,5% 25%);
+      z-index:1;animation:wiggle 4s ease-in-out infinite alternate
     }
-
     @keyframes wiggle {
-      0%   { transform: rotate(-1deg) scale(1); }
-      100% { transform: rotate(1.5deg) scale(1.02); }
+      0%   { transform:rotate(-1deg) scale(1) }
+      100% { transform:rotate(1.5deg) scale(1.02) }
     }
-
     .header-sub {
-      font-family: 'Caveat', cursive;
-      font-size: 1.4rem;
-      margin-top: 1.5rem;
-      opacity: 0.7;
-      transform: rotate(-1.5deg);
-      display: inline-block;
+      font-family:'Caveat',cursive;font-size:1.4rem;margin-top:1.5rem;
+      opacity:0.7;transform:rotate(-1.5deg);display:inline-block
     }
+    .scribble-divider { display:block;margin:2rem auto;width:min(90%,700px) }
 
-    /* Divider scribble */
-    .scribble-divider {
-      display: block;
-      margin: 2rem auto;
-      width: min(90%, 700px);
-    }
-
-    /* ── FILTER TAGS ── */
     .filter-row {
-      position: relative;
-      z-index: 10;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      justify-content: center;
-      padding: 0 2rem 2rem;
+      position:relative;z-index:10;display:flex;flex-wrap:wrap;
+      gap:0.8rem;justify-content:center;padding:0 2rem 2rem
     }
-
     .filter-tag {
-      font-family: 'Caveat', cursive;
-      font-size: 1.1rem;
-      padding: 0.35rem 1.2rem;
-      border: 2.5px solid var(--ink);
-      background: transparent;
-      cursor: pointer;
-      transition: all 0.15s;
-      transform: rotate(var(--r));
-      position: relative;
+      font-family:'Caveat',cursive;font-size:1.1rem;padding:0.35rem 1.2rem;
+      border:2.5px solid var(--ink);background:transparent;cursor:pointer;
+      transition:all 0.15s;transform:rotate(var(--r));position:relative
     }
-    .filter-tag:nth-child(1) { --r: -2deg; }
-    .filter-tag:nth-child(2) { --r: 1.5deg; }
-    .filter-tag:nth-child(3) { --r: -1deg; }
-    .filter-tag:nth-child(4) { --r: 2deg; }
-
-    .filter-tag.active,
-    .filter-tag:hover {
-      background: var(--ink);
-      color: var(--paper);
-      transform: rotate(var(--r)) scale(1.05);
+    .filter-tag:nth-child(1){--r:-2deg}.filter-tag:nth-child(2){--r:1.5deg}
+    .filter-tag:nth-child(3){--r:-1deg}.filter-tag:nth-child(4){--r:2deg}
+    .filter-tag.active,.filter-tag:hover {
+      background:var(--ink);color:var(--paper);transform:rotate(var(--r)) scale(1.05)
     }
 
-    /* ── MASONRY GRID ── */
     .grid {
-      position: relative;
-      z-index: 10;
-      columns: 1;
-      column-gap: 1.5rem;
-      padding: 1rem 1.5rem 4rem;
-      max-width: 1200px;
-      margin: auto;
+      position:relative;z-index:10;columns:1;column-gap:1.5rem;
+      padding:1rem 1.5rem 4rem;max-width:1200px;margin:auto
     }
+    @media(min-width:600px){.grid{columns:2}}
+    @media(min-width:900px){.grid{columns:3}}
+    @media(min-width:1100px){.grid{columns:4}}
 
-    @media (min-width: 600px)  { .grid { columns: 2; } }
-    @media (min-width: 900px)  { .grid { columns: 3; } }
-    @media (min-width: 1100px) { .grid { columns: 4; } }
-
-    /* ── CARD ── */
     .card {
-      break-inside: avoid;
-      position: relative;
-      margin-bottom: 1.5rem;
-      border: 2.5px solid var(--ink);
-      background: var(--paper);
-      transform: rotate(var(--tilt, 0deg));
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      overflow: visible;
+      break-inside:avoid;position:relative;margin-bottom:1.5rem;
+      border:2.5px solid var(--ink);background:var(--paper);
+      transform:rotate(var(--tilt,0deg));
+      transition:transform 0.2s ease;overflow:visible;
+      animation:cardIn 0.4s ease both
     }
-
     .card::before {
-      content: '';
-      position: absolute;
-      inset: 4px -4px -4px 4px;
-      border: 2.5px solid var(--ink);
-      background: var(--card-accent, var(--yellow));
-      z-index: -1;
-      transition: inset 0.2s ease;
+      content:'';position:absolute;inset:4px -4px -4px 4px;
+      border:2.5px solid var(--ink);background:var(--card-accent,var(--yellow));
+      z-index:-1;transition:inset 0.2s ease
+    }
+    .card:hover { transform:rotate(0deg) scale(1.02);z-index:20 }
+    .card:hover::before { inset:6px -6px -6px 6px }
+
+    .card:nth-child(1){--tilt:-1.5deg;--card-accent:#ffd600}
+    .card:nth-child(2){--tilt:2deg;--card-accent:#ff6b6b}
+    .card:nth-child(3){--tilt:-0.8deg;--card-accent:#74c7ff}
+    .card:nth-child(4){--tilt:1.5deg;--card-accent:#b5ffb5}
+    .card:nth-child(5){--tilt:-2deg;--card-accent:#ffb347}
+    .card:nth-child(6){--tilt:0.5deg;--card-accent:#ffd600}
+    .card:nth-child(7){--tilt:-1.2deg;--card-accent:#ff6b6b}
+    .card:nth-child(8){--tilt:1.8deg;--card-accent:#74c7ff}
+    .card:nth-child(9){--tilt:-0.6deg;--card-accent:#b5ffb5}
+    .card:nth-child(10){--tilt:1.3deg;--card-accent:#ffb347}
+
+    .card:nth-child(1){animation-delay:.05s}.card:nth-child(2){animation-delay:.1s}
+    .card:nth-child(3){animation-delay:.15s}.card:nth-child(4){animation-delay:.2s}
+    .card:nth-child(5){animation-delay:.25s}.card:nth-child(6){animation-delay:.3s}
+
+    @keyframes cardIn {
+      from{opacity:0;transform:rotate(var(--tilt,0deg)) translateY(20px)}
+      to{opacity:1;transform:rotate(var(--tilt,0deg)) translateY(0)}
     }
 
-    .card:hover {
-      transform: rotate(0deg) scale(1.02);
-      z-index: 20;
-    }
-    .card:hover::before {
-      inset: 6px -6px -6px 6px;
-    }
-
-    /* tilt per card */
-    .card:nth-child(1)  { --tilt: -1.5deg; --card-accent: #ffd600; }
-    .card:nth-child(2)  { --tilt:  2deg;   --card-accent: #ff6b6b; }
-    .card:nth-child(3)  { --tilt: -0.8deg; --card-accent: #74c7ff; }
-    .card:nth-child(4)  { --tilt:  1.5deg; --card-accent: #b5ffb5; }
-    .card:nth-child(5)  { --tilt: -2deg;   --card-accent: #ffb347; }
-    .card:nth-child(6)  { --tilt:  0.5deg; --card-accent: #ffd600; }
-    .card:nth-child(7)  { --tilt: -1.2deg; --card-accent: #ff6b6b; }
-    .card:nth-child(8)  { --tilt:  1.8deg; --card-accent: #74c7ff; }
-
-    /* STICKER label on corner */
     .sticker {
-      position: absolute;
-      top: -14px;
-      right: 12px;
-      background: var(--red);
-      color: white;
-      font-family: 'Caveat', cursive;
-      font-size: 0.95rem;
-      font-weight: 700;
-      padding: 2px 10px;
-      border: 2px solid var(--ink);
-      transform: rotate(3deg);
-      z-index: 5;
+      position:absolute;top:-14px;right:12px;color:white;
+      font-family:'Caveat',cursive;font-size:0.95rem;font-weight:700;
+      padding:2px 10px;border:2px solid var(--ink);transform:rotate(3deg);z-index:5
     }
-    .sticker.kondisi-baik  { background: var(--green); }
-    .sticker.kondisi-cukup { background: var(--orange); }
-    .sticker.terjual       { background: #999; }
+    .sticker.kondisi-baik{background:var(--green)}
+    .sticker.kondisi-cukup{background:var(--orange)}
+    .sticker.terjual{background:#999}
 
-    /* Photo frame */
+    /* ── IMAGE CLICKABLE ── */
+    .card-img-wrap {
+      position:relative;overflow:hidden;
+      border-bottom:2.5px solid var(--ink);
+      cursor:zoom-in
+    }
     .card-img {
-      width: 100%;
-      aspect-ratio: 4/3;
-      object-fit: cover;
-      display: block;
-      border-bottom: 2.5px solid var(--ink);
-      filter: contrast(1.05) saturate(0.9);
+      width:100%;aspect-ratio:4/3;object-fit:cover;display:block;
+      filter:contrast(1.05) saturate(0.9);
+      transition:transform 0.3s ease
     }
+    .card-img-wrap:hover .card-img { transform:scale(1.05) }
+    .card-img-wrap::after {
+      content:'tap to enlarge';
+      position:absolute;bottom:0;left:0;right:0;
+      background:linear-gradient(transparent, rgba(0,0,0,0.55));
+      color:white;font-family:'Caveat',cursive;font-size:0.9rem;
+      padding:1.5rem 0.8rem 0.5rem;
+      opacity:0;transition:opacity 0.2s;pointer-events:none
+    }
+    .card-img-wrap:hover::after { opacity:1 }
 
-    /* Placeholder photo */
     .card-img-placeholder {
-      width: 100%;
-      aspect-ratio: 4/3;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      border-bottom: 2.5px solid var(--ink);
-      background: repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 10px,
-        rgba(0,0,0,0.04) 10px,
-        rgba(0,0,0,0.04) 20px
-      );
+      width:100%;aspect-ratio:4/3;display:flex;align-items:center;
+      justify-content:center;font-size:3rem;border-bottom:2.5px solid var(--ink);
+      background:repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(0,0,0,.04) 10px,rgba(0,0,0,.04) 20px)
     }
 
-    .card-body {
-      padding: 1rem;
-    }
-
-    .card-name {
-      font-family: 'Caveat', cursive;
-      font-size: 1.5rem;
-      font-weight: 700;
-      line-height: 1.1;
-      margin-bottom: 0.4rem;
-    }
-
-    .card-desc {
-      font-size: 0.72rem;
-      line-height: 1.5;
-      opacity: 0.7;
-      margin-bottom: 0.8rem;
-    }
-
-    .card-price {
-      font-size: 1.3rem;
-      font-weight: 700;
-      letter-spacing: -0.05em;
-      margin-bottom: 0.8rem;
-      display: flex;
-      align-items: baseline;
-      gap: 0.3rem;
-    }
-
-    .card-price span {
-      font-size: 0.7rem;
-      opacity: 0.6;
-      font-weight: 400;
-    }
-
-    /* WA Button */
-    .wa-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      background: var(--ink);
-      color: var(--paper);
-      font-family: 'Caveat', cursive;
-      font-size: 1.1rem;
-      font-weight: 700;
-      padding: 0.55rem 1rem;
-      border: 2px solid var(--ink);
-      text-decoration: none;
-      transition: all 0.15s;
-      cursor: pointer;
-    }
-    .wa-btn:hover {
-      background: #25D366;
-      border-color: #25D366;
-    }
-
-    /* SOLD overlay */
-    .card.sold {
-      opacity: 0.45;
-      pointer-events: none;
-    }
-    .card.sold::after {
-      content: 'TERJUAL';
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Caveat', cursive;
-      font-size: 3rem;
-      font-weight: 700;
-      color: var(--red);
-      border: 6px solid var(--red);
-      background: rgba(240,235,224,0.5);
-      transform: rotate(-10deg) scale(1.05);
-      z-index: 10;
-      letter-spacing: 0.1em;
-    }
-
-    /* ── NUMBER BADGE ── */
+    .card-body { padding:1rem }
     .card-num {
-      position: absolute;
-      top: 8px;
-      left: -12px;
-      width: 28px;
-      height: 28px;
-      background: var(--ink);
-      color: var(--paper);
-      font-size: 0.7rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      z-index: 6;
+      position:absolute;top:8px;left:-12px;width:28px;height:28px;
+      background:var(--ink);color:var(--paper);font-size:0.7rem;font-weight:700;
+      display:flex;align-items:center;justify-content:center;border-radius:50%;z-index:6
+    }
+    .card-name { font-family:'Caveat',cursive;font-size:1.5rem;font-weight:700;line-height:1.1;margin-bottom:.4rem }
+    .card-desc { font-size:0.72rem;line-height:1.5;opacity:0.7;margin-bottom:.8rem;white-space:pre-line }
+    .card-price {
+      font-size:1.3rem;font-weight:700;letter-spacing:-.05em;margin-bottom:.8rem;
+      display:flex;align-items:baseline;gap:.3rem
+    }
+    .card-price span { font-size:0.7rem;opacity:0.6;font-weight:400 }
+
+    .wa-btn {
+      display:flex;align-items:center;justify-content:center;gap:.5rem;
+      background:var(--ink);color:var(--paper);font-family:'Caveat',cursive;
+      font-size:1.1rem;font-weight:700;padding:.55rem 1rem;
+      border:2px solid var(--ink);text-decoration:none;transition:all .15s;cursor:pointer
+    }
+    .wa-btn:hover { background:#25D366;border-color:#25D366 }
+
+    .card.sold { opacity:.45;pointer-events:none }
+    .card.sold::after {
+      content:'TERJUAL';position:absolute;inset:0;
+      display:flex;align-items:center;justify-content:center;
+      font-family:'Caveat',cursive;font-size:3rem;font-weight:700;
+      color:var(--red);border:6px solid var(--red);
+      background:rgba(240,235,224,.5);transform:rotate(-10deg) scale(1.05);
+      z-index:10;letter-spacing:.1em
+    }
+    .card.hidden { display:none }
+
+    /* ── LIGHTBOX ── */
+    #lightbox {
+      position:fixed;inset:0;z-index:10000;
+      background:rgba(10,10,10,.93);
+      display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1rem;
+      opacity:0;pointer-events:none;
+      transition:opacity .25s ease;
+      cursor:zoom-out
+    }
+    #lightbox.open { opacity:1;pointer-events:all }
+
+    #lightbox-img {
+      max-width:92vw;max-height:80vh;object-fit:contain;
+      border:3px solid rgba(255,255,255,.15);
+      transform:scale(.92);transition:transform .3s ease;
+      cursor:default;display:block
+    }
+    #lightbox.open #lightbox-img { transform:scale(1) }
+
+    #lightbox-close {
+      position:fixed;top:1.2rem;right:1.5rem;
+      font-family:'Caveat',cursive;font-size:2.2rem;color:white;
+      cursor:pointer;line-height:1;z-index:10001;
+      background:none;border:none;transition:transform .15s;
+      opacity:.7
+    }
+    #lightbox-close:hover { transform:scale(1.2) rotate(15deg);opacity:1 }
+
+    #lightbox-caption {
+      font-family:'Caveat',cursive;font-size:1.3rem;color:white;
+      opacity:.75;text-align:center
     }
 
-    /* ── FOOTER ── */
-    footer {
-      position: relative;
-      z-index: 10;
-      text-align: center;
-      padding: 3rem 1rem 5rem;
-      font-family: 'Caveat', cursive;
-      font-size: 1.1rem;
-      opacity: 0.6;
+    /* multi-photo nav dots */
+    #lightbox-dots { display:flex;gap:.5rem;justify-content:center }
+    .lb-dot {
+      width:8px;height:8px;border-radius:50%;
+      background:rgba(255,255,255,.3);cursor:pointer;
+      transition:background .15s;border:none
     }
+    .lb-dot.active { background:white }
 
-    /* ── FLOATING SHAPES ── */
     .float-shape {
-      position: fixed;
-      pointer-events: none;
-      z-index: 5;
-      opacity: 0.07;
-      animation: drift linear infinite;
+      position:fixed;pointer-events:none;z-index:5;opacity:.07;
+      animation:drift linear infinite
     }
     @keyframes drift {
-      from { transform: translateY(100vh) rotate(0deg); }
-      to   { transform: translateY(-200px) rotate(360deg); }
+      from{transform:translateY(100vh) rotate(0deg)}
+      to{transform:translateY(-200px) rotate(360deg)}
     }
-    .float-shape:nth-child(1) { left: 5%;  width: 30px; height: 30px; background: var(--red);    border-radius: 50%; animation-duration: 14s; animation-delay: 0s; }
-    .float-shape:nth-child(2) { left: 20%; width: 20px; height: 20px; background: var(--blue);   clip-path: polygon(50% 0%,100% 100%,0% 100%); animation-duration: 18s; animation-delay: -5s; }
-    .float-shape:nth-child(3) { left: 60%; width: 25px; height: 25px; background: var(--yellow); animation-duration: 12s; animation-delay: -8s; }
-    .float-shape:nth-child(4) { left: 80%; width: 18px; height: 18px; background: var(--green);  clip-path: polygon(50% 0%,100% 50%,50% 100%,0% 50%); animation-duration: 20s; animation-delay: -3s; }
+    .float-shape:nth-child(1){left:5%;width:30px;height:30px;background:var(--red);border-radius:50%;animation-duration:14s}
+    .float-shape:nth-child(2){left:20%;width:20px;height:20px;background:var(--blue);clip-path:polygon(50% 0%,100% 100%,0% 100%);animation-duration:18s;animation-delay:-5s}
+    .float-shape:nth-child(3){left:60%;width:25px;height:25px;background:var(--yellow);animation-duration:12s;animation-delay:-8s}
+    .float-shape:nth-child(4){left:80%;width:18px;height:18px;background:var(--green);clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%);animation-duration:20s;animation-delay:-3s}
 
-    /* hidden class for filtering */
-    .card.hidden { display: none; }
-
-    /* ── LOAD ANIMATION ── */
-    .card {
-      animation: cardIn 0.4s ease both;
+    footer {
+      position:relative;z-index:10;text-align:center;
+      padding:3rem 1rem 5rem;font-family:'Caveat',cursive;
+      font-size:1.1rem;opacity:.6
     }
-    @keyframes cardIn {
-      from { opacity: 0; transform: rotate(var(--tilt, 0deg)) translateY(20px); }
-      to   { opacity: 1; transform: rotate(var(--tilt, 0deg)) translateY(0); }
-    }
-    .card:nth-child(1) { animation-delay: 0.05s; }
-    .card:nth-child(2) { animation-delay: 0.1s; }
-    .card:nth-child(3) { animation-delay: 0.15s; }
-    .card:nth-child(4) { animation-delay: 0.2s; }
-    .card:nth-child(5) { animation-delay: 0.25s; }
-    .card:nth-child(6) { animation-delay: 0.3s; }
   </style>
 </head>
 <body>
 
-<!-- BG blobs -->
 <div class="bg-blob"></div>
 <div class="bg-blob"></div>
 <div class="bg-blob"></div>
+<div class="float-shape"></div>
+<div class="float-shape"></div>
+<div class="float-shape"></div>
+<div class="float-shape"></div>
 
-<!-- Floating shapes -->
-<div class="float-shape"></div>
-<div class="float-shape"></div>
-<div class="float-shape"></div>
-<div class="float-shape"></div>
+<!-- ═══ LIGHTBOX ═══ -->
+<div id="lightbox">
+  <button id="lightbox-close">✕</button>
+  <img id="lightbox-img" src="" alt="" />
+  <div id="lightbox-dots"></div>
+  <div id="lightbox-caption"></div>
+</div>
 
 <!-- ═══ HEADER ═══ -->
 <header>
-  <div class="header-stamp">
-    <h1>Moving<br>Out Sale</h1>
-  </div>
+  <div class="header-stamp"><h1>Moving<br>Out Sale</h1></div>
   <p class="header-sub">barang second hand · kondisi jelas · hub. via WhatsApp</p>
-
   <svg class="scribble-divider" viewBox="0 0 700 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M10 15 Q80 5, 160 18 T320 12 T480 20 T640 10 T690 15"
-          stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.3"/>
-    <path d="M30 20 Q100 8, 200 22 T400 8 T600 18 T680 12"
-          stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.15"/>
+    <path d="M10 15 Q80 5,160 18 T320 12 T480 20 T640 10 T690 15" stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.3"/>
+    <path d="M30 20 Q100 8,200 22 T400 8 T600 18 T680 12" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.15"/>
   </svg>
 </header>
 
@@ -428,163 +300,221 @@
   <button class="filter-tag" data-filter="tersedia">◯ Tersedia</button>
 </div>
 
-<!-- ═══ GRID ═══ -->
-<div class="grid" id="grid">
+<!-- ═══ GRID — diisi otomatis dari ITEMS ═══ -->
+<div class="grid" id="grid"></div>
 
-  <!-- ✏️ CARD 1 -->
-  <div class="card" data-kondisi="baik" data-status="tersedia">
-    <div class="card-num">01</div>
-    <span class="sticker kondisi-baik">● Baik</span>
-    <img class="card-img" src="sepeda_jonna.jpeg" alt="Sepeda Jonna" />
-    <div class="card-body">
-      <h2 class="card-name">Sepeda Jonna</h2>
-      <p class="card-desc">Sepeda Jonna Gear 7 (jarang ada di pasaran) dengan kondisi masih sangat baik dan siap pakai. Semua fungsi berjalan normal, termasuk sistem gear 7-speed yang responsif dan nyaman untuk berbagai kondisi jalan. Cocok untuk penggunaan harian maupun santai.
-Kondisi keseluruhan terawat, rangka kokoh, dan komponen masih original. Minus: tidak dilengkapi keranjang.
-Siap dipakai tanpa perlu perbaikan.
-</p>
-      <p class="card-price">1800 SEK <span>nego</span></p>
-      <a class="wa-btn" href="https://wa.me/628117545544?text=Halo%20Ardian!%20Saya%20tertarik%20dengan%20Sepeda%20Jonna" target="_blank">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52 -.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5 -.669 -.51 -.173 -.008 -.371 -.01 -.57 -.01 -.１９８ ０ -.５２ .０７４ -.７９２ .３７２ -.２７２ .２９７ -１．０４ １．０１６ -１．０４ ２．４７９ ０ １．４６２ １．０６５ ２．８７５ １．２１３ ３．０７４ .１４９ .１９８ ２．０９６ ３．２ ５．０７７ ４．４８７ .７０９ .３０６ １．２６２ .４８９ １．６９４ .６２５ .７１２ .２２７ １．３６ .１９５ １．８７１ .１１８ .５７１ -\.０８５ １．７５８ -\.７１９ ２．００６ -\.４１３ .２４８ -\.６９４ .２４８ -\.１₂₉ .₁₇₃ -\.₁₄₃ -\.₀₇₄ -\.₁₂₄ -\.₂₇₂ -\.₁₉₈ -\.₅₇ -\.₃₄₇m -\_⁵·⁴²¹ ⁷·⁴⁰³h -\.₀₀⁴a ⁹·⁸⁷ ⁹·⁸⁷ ₀ ₀₁ -\_⁵·₀³¹ -\_¹·³⁷⁸l -\.³⁶¹ -\.²¹⁴ -\_³·⁷⁴¹ .⁹⁸² .⁹⁹⁸ -\_³·⁶⁴⁸ -\.²³⁵ -\.³⁷⁴a ⁹·⁸٦ ٩·٨٦ ₀ ᵗ₁·٥¹ -\_٥·٢٦c .₀₀₁ -\_٥·٤٥ ٤·٤٣٦ -\_٩·٨٨٤ ٩·٨٨٨ -\_٩·٨٨٤ ᵗ₂ ·۶۴ ᵗ₃ ·۸۹۸a ᵗ₁ ·۲۹۳ ᵗ₂ ·۶۹۹c -\.₀₀³ _\._\._\._\._\._\._\._\._\._\._\._\._\._\._\._\._\._\._\._\._\._\._\._\._\._\)"/></svg>
-        Chat di WhatsApp
-      </a>
-    </div>
-  </div>
-
-  <!-- CARD 2 – TERJUAL -->
-  <div class="card sold" data-kondisi="baik" data-status="terjual">
-    <div class="card-num">02</div>
-    <span class="sticker terjual">✕ Booked</span>
-    <img class="card-img" src="meja_kerja.jpeg" alt="Meja Kerja" />
-    <div class="card-body">
-      <h2 class="card-name">Meja Kerja</h2>
-      <p class="card-desc">Maaf sudah ada yang booking, masih ada barang free yang lainnya ya.</p>
-      <p class="card-price">Free</p>
-    </div>
-  </div>
-
-  <!-- CARD 3 -->
-  <div class="card" data-kondisi="baik" data-status="tersedia">
-    <div class="card-num">03</div>
-    <span class="sticker kondisi-baik">● Baik</span>
-    <img class="card-img" src="celana_winter_cewek.jpg" alt="Celana Winter Wanita" />
-    <div class="card-body">
-      <h2 class="card-name">Celana Winter Wanita</h2>
-      <p class="card-desc">Celana winter wanita Cross Sportswear size L.
-Tebal dan hangat! Pernah dipakai di Kiruna (Swedia) sama Rovaniemi (Finlandia) pas cuaca dingin, tetap nyaman.
-High waist, hitam polos, bahan windproof.</p>
-      <p class="card-price">99 SEK <span>fix</span></p>
-      <a class="wa-btn" href="https://wa.me/628117545544?text=Halo%20Ardian!%20Saya%20tertarik%20dengan%20celana_winter_cewek" target="_blank">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Chat di WhatsApp
-      </a>
-    </div>
-  </div>
-
-  <!-- CARD 3 --
-  <div class="card" data-kondisi="cukup" data-status="tersedia">
-    <div class="card-num">03</div>
-    <span class="sticker kondisi-cukup">◐ Cukup</span>
-    <div class="card-img-placeholder">📚</div>
-    <div class="card-body">
-      <h2 class="card-name">Rak Buku 5 Susun</h2>
-      <p class="card-desc">Kayu MDF, ada sedikit goresan di sudut bawah. Kokoh dan stabil.</p>
-      <p class="card-price">Rp 200.000</p>
-      <a class="wa-btn" href="https://wa.me/46NOMORMU?text=Halo%20Ardian!%20Saya%20tertarik%20dengan%20Rak%20Buku" target="_blank">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Chat di WhatsApp
-      </a>
-    </div>
-  </div>
-
-  <!-- CARD 4 – TERJUAL --
-  <div class="card sold" data-kondisi="baik" data-status="terjual">
-    <div class="card-num">04</div>
-    <span class="sticker terjual">✕ Terjual</span>
-    <div class="card-img-placeholder">💡</div>
-    <div class="card-body">
-      <h2 class="card-name">Lampu Meja LED</h2>
-      <p class="card-desc">Sudah laku.</p>
-      <p class="card-price">Rp 150.000</p>
-    </div>
-  </div>
-
-  <!-- CARD 5 --
-  <div class="card" data-kondisi="baik" data-status="tersedia">
-    <div class="card-num">05</div>
-    <span class="sticker kondisi-baik">● Baik</span>
-    <div class="card-img-placeholder">🎒</div>
-    <div class="card-body">
-      <h2 class="card-name">Meja Lipat IKEA</h2>
-      <p class="card-desc">120×60 cm, kondisi sangat baik. Bekas pakai 1 tahun.</p>
-      <p class="card-price">Rp 350.000 <span>nego</span></p>
-      <a class="wa-btn" href="https://wa.me/46NOMORMU?text=Halo%20Ardian!%20Saya%20tertarik%20dengan%20Meja%20Lipat%20IKEA" target="_blank">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Chat di WhatsApp
-      </a>
-    </div>
-  </div>
-
-  <!-- CARD 6 --
-  <div class="card" data-kondisi="cukup" data-status="tersedia">
-    <div class="card-num">06</div>
-    <span class="sticker kondisi-cukup">◐ Cukup</span>
-    <div class="card-img-placeholder">🎧</div>
-    <div class="card-body">
-      <h2 class="card-name">Headphone Over-Ear</h2>
-      <p class="card-desc">Suara masih bagus, ear cup sedikit pudar. Kabel masih original.</p>
-      <p class="card-price">Rp 120.000</p>
-      <a class="wa-btn" href="https://wa.me/46NOMORMU?text=Halo%20Ardian!%20Saya%20tertarik%20dengan%20Headphone" target="_blank">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Chat di WhatsApp
-      </a>
-    </div>
-  </div>
-
-</div>
-
-<!-- ═══ FOOTER ═══ -->
 <footer>
   <svg width="200" height="20" viewBox="0 0 200 20" fill="none">
-    <path d="M5 10 Q50 3, 100 10 T195 10" stroke="#0a0a0a" stroke-width="1.5" fill="none" opacity="0.3"/>
+    <path d="M5 10 Q50 3,100 10 T195 10" stroke="#0a0a0a" stroke-width="1.5" fill="none" opacity="0.3"/>
   </svg>
-  <p style="margin-top:0.5rem">© 2026 Ardian Candra · ardiancandra.com</p>
+  <p style="margin-top:.5rem">© 2026 Ardian Candra · ardiancandra.com</p>
 </footer>
 
 <script>
-  // ── Filter logic ──
-  const tags = document.querySelectorAll('.filter-tag');
-  const cards = document.querySelectorAll('.card');
+/* ╔═══════════════════════════════════════════════════════════╗
+   ║                   KONFIGURASI UTAMA                       ║
+   ╚═══════════════════════════════════════════════════════════╝ */
 
-  tags.forEach(tag => {
-    tag.addEventListener('click', () => {
-      tags.forEach(t => t.classList.remove('active'));
-      tag.classList.add('active');
-      const f = tag.dataset.filter;
-      cards.forEach(card => {
-        const kondisi = card.dataset.kondisi;
-        const status  = card.dataset.status;
-        if (f === 'all') {
-          card.classList.remove('hidden');
-        } else if (f === 'baik') {
-          card.classList.toggle('hidden', kondisi !== 'baik');
-        } else if (f === 'cukup') {
-          card.classList.toggle('hidden', kondisi !== 'cukup');
-        } else if (f === 'tersedia') {
-          card.classList.toggle('hidden', status !== 'tersedia');
-        }
-      });
+const WA_NUMBER = '628117545544';  // ← ganti nomor WA di sini (sekali aja)
+
+/* ── DATABASE BARANG ─────────────────────────────────────────
+   Tambah barang baru: copy satu blok { ... }, paste di bawahnya,
+   edit isinya. Pisah tiap barang dengan koma.
+
+   Field yang tersedia:
+     nama      : nama barang (wajib)
+     foto      : nama file foto, misal "sepeda.jpg"
+                 Untuk banyak foto, pakai array:
+                 ["foto1.jpg", "foto2.jpg", "foto3.jpg"]
+     harga     : string harga, misal "1800 SEK" atau "Free"
+     label     : "nego" | "fix" | "" (kosong = tanpa label)
+     kondisi   : "baik" | "cukup"
+     status    : "tersedia" | "terjual"
+     soldLabel : (opsional) teks stiker kalau terjual, default "Terjual"
+     desc      : deskripsi barang (gunakan \n untuk baris baru)
+   ──────────────────────────────────────────────────────────── */
+
+const ITEMS = [
+  {
+    nama:    "Sepeda Jonna",
+    foto:    "sepeda_jonna.jpeg",
+    harga:   "1800 SEK",
+    label:   "nego",
+    kondisi: "baik",
+    status:  "tersedia",
+    desc:    "Sepeda Jonna Gear 7 (jarang ada di pasaran) dengan kondisi masih sangat baik dan siap pakai. Semua fungsi berjalan normal, termasuk sistem gear 7-speed yang responsif dan nyaman untuk berbagai kondisi jalan.\nKondisi keseluruhan terawat, rangka kokoh, dan komponen masih original. Minus: tidak dilengkapi keranjang.\nSiap dipakai tanpa perlu perbaikan."
+  },
+  {
+    nama:      "Meja Kerja",
+    foto:      "meja_kerja.jpeg",
+    harga:     "Free",
+    label:     "",
+    kondisi:   "baik",
+    status:    "terjual",
+    soldLabel: "Booked",
+    desc:      "Maaf sudah ada yang booking, masih ada barang free yang lainnya ya."
+  },
+  {
+    nama:    "Celana Winter Wanita",
+    foto:    "celana_winter_cewek.jpg",
+    harga:   "99 SEK",
+    label:   "fix",
+    kondisi: "baik",
+    status:  "tersedia",
+    desc:    "Celana winter wanita Cross Sportswear size L.\nTebal dan hangat! Pernah dipakai di Kiruna (Swedia) sama Rovaniemi (Finlandia) pas cuaca dingin, tetap nyaman.\nHigh waist, hitam polos, bahan windproof."
+  },
+
+  /* ── TEMPLATE BARANG BARU — hapus /* dan */ lalu isi ──
+  {
+    nama:    "Nama Barang",
+    foto:    ["foto1.jpg", "foto2.jpg"],
+    harga:   "500 SEK",
+    label:   "nego",
+    kondisi: "baik",
+    status:  "tersedia",
+    desc:    "Deskripsi barang.\nBisa multi baris pakai \\n."
+  },
+  */
+];
+
+/* ═══════════════════════════════════════════════════════════ */
+
+const WA_ICON = `<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>`;
+
+// ── Render cards dari ITEMS ──
+const grid = document.getElementById('grid');
+
+ITEMS.forEach((item, i) => {
+  const num     = String(i + 1).padStart(2, '0');
+  const isSold  = item.status === 'terjual';
+  const kondisi = item.kondisi || 'baik';
+  const photos  = Array.isArray(item.foto) ? item.foto : (item.foto ? [item.foto] : []);
+
+  const stickerClass = isSold ? 'terjual' : `kondisi-${kondisi}`;
+  const stickerText  = isSold
+    ? `✕ ${item.soldLabel || 'Terjual'}`
+    : kondisi === 'baik' ? '● Baik' : '◐ Cukup';
+
+  const imgMarkup = photos.length
+    ? `<div class="card-img-wrap"
+            data-photos='${JSON.stringify(photos)}'
+            data-nama="${item.nama.replace(/"/g, '&quot;')}">
+         <img class="card-img" src="${photos[0]}" alt="${item.nama}" loading="lazy"/>
+       </div>`
+    : `<div class="card-img-placeholder">📦</div>`;
+
+  const priceMarkup = item.label
+    ? `<p class="card-price">${item.harga} <span>${item.label}</span></p>`
+    : `<p class="card-price">${item.harga}</p>`;
+
+  const msg   = encodeURIComponent(`Halo Ardian! Saya tertarik dengan ${item.nama} 😊`);
+  const waBtn = !isSold
+    ? `<a class="wa-btn" href="https://wa.me/${WA_NUMBER}?text=${msg}" target="_blank">${WA_ICON} Chat di WhatsApp</a>`
+    : '';
+
+  const div = document.createElement('div');
+  div.className = `card${isSold ? ' sold' : ''}`;
+  div.dataset.kondisi = kondisi;
+  div.dataset.status  = item.status;
+  div.innerHTML = `
+    <div class="card-num">${num}</div>
+    <span class="sticker ${stickerClass}">${stickerText}</span>
+    ${imgMarkup}
+    <div class="card-body">
+      <h2 class="card-name">${item.nama}</h2>
+      <p class="card-desc">${item.desc || ''}</p>
+      ${priceMarkup}
+      ${waBtn}
+    </div>`;
+  grid.appendChild(div);
+});
+
+// ── Lightbox ──
+const lightbox = document.getElementById('lightbox');
+const lbImg    = document.getElementById('lightbox-img');
+const lbCap    = document.getElementById('lightbox-caption');
+const lbDots   = document.getElementById('lightbox-dots');
+const lbClose  = document.getElementById('lightbox-close');
+let lbPhotos = [], lbIndex = 0;
+
+function showPhoto(idx) {
+  lbIndex = idx;
+  lbImg.src = lbPhotos[idx];
+  lbDots.querySelectorAll('.lb-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+}
+
+function openLightbox(photos, nama, startIdx = 0) {
+  lbPhotos = photos;
+  lbCap.textContent = nama;
+
+  // build dots only if multiple photos
+  lbDots.innerHTML = photos.length > 1
+    ? photos.map((_, i) => `<button class="lb-dot${i===startIdx?' active':''}" data-i="${i}"></button>`).join('')
+    : '';
+
+  lbImg.src = photos[startIdx];
+  lbIndex   = startIdx;
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// open on image click
+document.getElementById('grid').addEventListener('click', e => {
+  const wrap = e.target.closest('.card-img-wrap[data-photos]');
+  if (!wrap) return;
+  const photos = JSON.parse(wrap.dataset.photos);
+  const nama   = wrap.dataset.nama;
+  openLightbox(photos, nama);
+});
+
+// dot navigation
+lbDots.addEventListener('click', e => {
+  const dot = e.target.closest('.lb-dot');
+  if (dot) showPhoto(Number(dot.dataset.i));
+});
+
+// arrow key navigation
+document.addEventListener('keydown', e => {
+  if (!lightbox.classList.contains('open')) return;
+  if (e.key === 'Escape')      closeLightbox();
+  if (e.key === 'ArrowRight')  showPhoto((lbIndex + 1) % lbPhotos.length);
+  if (e.key === 'ArrowLeft')   showPhoto((lbIndex - 1 + lbPhotos.length) % lbPhotos.length);
+});
+
+lbClose.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+
+// ── Filter ──
+document.querySelectorAll('.filter-tag').forEach(tag => {
+  tag.addEventListener('click', () => {
+    document.querySelectorAll('.filter-tag').forEach(t => t.classList.remove('active'));
+    tag.classList.add('active');
+    const f = tag.dataset.filter;
+    document.querySelectorAll('.card').forEach(card => {
+      const show =
+        f === 'all'      ? true :
+        f === 'baik'     ? card.dataset.kondisi === 'baik' :
+        f === 'cukup'    ? card.dataset.kondisi === 'cukup' :
+        f === 'tersedia' ? card.dataset.status  === 'tersedia' : true;
+      card.classList.toggle('hidden', !show);
     });
   });
+});
 
-  // ── Subtle parallax on blobs ──
-  document.addEventListener('mousemove', e => {
-    const x = (e.clientX / window.innerWidth  - 0.5) * 20;
-    const y = (e.clientY / window.innerHeight - 0.5) * 20;
-    document.querySelectorAll('.bg-blob').forEach((b, i) => {
-      const dir = i % 2 === 0 ? 1 : -1;
-      b.style.transform = `translate(${x * dir * 0.4}px, ${y * dir * 0.4}px)`;
-    });
+// ── Parallax blobs ──
+document.addEventListener('mousemove', e => {
+  const x = (e.clientX / innerWidth  - 0.5) * 20;
+  const y = (e.clientY / innerHeight - 0.5) * 20;
+  document.querySelectorAll('.bg-blob').forEach((b, i) => {
+    const d = i % 2 === 0 ? 1 : -1;
+    b.style.transform = `translate(${x*d*.4}px,${y*d*.4}px)`;
   });
+});
 </script>
 </body>
 </html>

@@ -336,115 +336,428 @@ const WA_NUMBER = '628117545544';  // ← ganti nomor WA di sini (sekali aja)
 
 const ITEMS = [
   {
-    nama:    "Sepeda Jonna",
-    foto:    "sepeda_jonna.jpeg",
-    harga:   "1800 SEK",
+    nama:    "Jaket Anak Cross Sportswear",
+    foto:    "1. Jaket Anak Cross  Sportswear.jpeg",
+    harga:   "25 Kr",
+    label:   "fix",
+    kondisi: "cukup",
+    status:  "tersedia",
+    desc:    "Jaket anak ukuran 134/140. Ada sobek kecil dekat saku, kondisi lainnya masih baik dan hangat."
+  },
+  {
+    nama:    "Jaket Winter Amisu",
+    foto:    "2. Jaket Winter Amisu.jpeg",
+    harga:   "150 Kr",
+    label:   "fix",
+    kondisi: "baik",
+    status:  "tersedia",
+    desc:    "Jaket winter wanita Amisu ukuran 36. Hangat, kondisi bagus."
+  },
+  {
+    nama:    "Peacoat Style KappAhl",
+    foto:    "3,. Peacoat Style KappAhl.jpeg",
+    harga:   "50 Kr",
+    label:   "fix",
+    kondisi: "baik",
+    status:  "tersedia",
+    desc:    "Peacoat KappAhl ukuran L (44/46). Gaya klasik, kondisi bagus."
+  },
+  {
+    nama:    "Kemeja MayountFit",
+    foto:    "4, Kemeja MayountFit.jpeg",
+    harga:   "Free",
+    label:   "",
+    kondisi: "baik",
+    status:  "tersedia",
+    desc:    "Kemeja MayountFit ukuran 36. Kondisi bagus."
+  },
+  {
+    nama:    "Kemeja Colorbox",
+    foto:    "5. Kemeja Colorbox.jpeg",
+    harga:   "Free",
+    label:   "",
+    kondisi: "baik",
+    status:  "tersedia",
+    desc:    "Kemeja Colorbox ukuran L. Kondisi bagus."
+  },
+  {
+    nama:    "Rok Fashion",
+    foto:    "6. Rok Fashion.jpeg",
+    harga:   "10 Kr",
+    label:   "fix",
+    kondisi: "baik",
+    status:  "tersedia",
+    desc:    "Rok fashion all size. Kondisi bagus."
+  },
+  {
+    nama:    "Jean Wanita Perfect Jeans",
+    foto:    "7, Jean Wanita Perfect Jeans.jpeg",
+    harga:   "25 Kr",
+    label:   "fix",
+    kondisi: "baik",
+    status:  "tersedia",
+    desc:    "Jeans wanita Perfect Jeans ukuran 38. Kondisi bagus."
+  },
+  {
+    nama:    "Sweatpants Burgundy",
+    foto:    "8. Sweatpants Burgundy.jpeg",
+    harga:   "15 Kr",
+    label:   "fix",
+    kondisi: "baik",
+    status:  "tersedia",
+    desc:    "Sweatpants warna burgundy ukuran M/L. Nyaman untuk santai."
+  },
+  {
+    nama:    "Ankle Pants Kotak Abu",
+    foto:    "9. Ankle Pants Kotak Abu.jpeg",
+    harga:   "16 Kr",
+    label:   "fix",
+    kondisi: "baik",
+    status:  "tersedia",
+    desc:    "Ankle pants motif kotak-kotak abu ukuran M/L."
+  },
+  {
+    nama:    "Training Coklat H&M",
+    foto:    "10. Training Coklat H&M.jpeg",
+    harga:   "Free",
+    label:   "",
+    kondisi: "baik",
+    status:  "tersedia",
+    desc:    "Celana training H&M warna coklat ukuran M."
+  },
+  {
+    nama:    "Training Navy Nike",
+    foto:    "11. Training Navy Nike.jpeg",
+    harga:   "Free",
+    label:   "",
+    kondisi: "baik",
+    status:  "tersedia",
+    desc:    "Celana training Nike warna navy ukuran M."
+  },
+  {
+    nama:    "One-Set Loungewear",
+    foto:    "12. One-Set Loungewear.jpeg",
+    harga:   "100 Kr",
+    label:   "fix",
+    kondisi: "baik",
+    status:  "tersedia",
+    desc:    "Set loungewear atas + bawah ukuran M/L. Nyaman untuk di rumah."
+  },
+  {
+    nama:    "Long Sleeve T-Shirt Uniqlo",
+    foto:    "13. Long sleeve T-shirt Uniqlo.jpeg",
+    harga:   "Free",
+    label:   "",
+    kondisi: "baik",
+    status:  "tersedia",
+    desc:    "Kaos lengan panjang Uniqlo ukuran M."
+  },
+  {
+    nama:    "Polo Sweatshirt Colorbox",
+    foto:    "14. Polo Sweatshirt Colorbox.jpeg",
+    harga:   "Free",
+    label:   "",
+    kondisi: "baik",
+    status:  "tersedia",
+    desc:    "Polo sweatshirt Colorbox ukuran M."
+  },
+  {
+    nama:    "Hoodie Pullover Adidas",
+    foto:    "15. Hoodie Pullover Adidas.jpeg",
+    harga:   "Free",
+    label:   "",
+    kondisi: "baik",
+    status:  "tersedia",
+    desc:    "Hoodie pullover Adidas ukuran M."
+  },
+  {
+    nama:    "Jogger Denim Uniqlo",
+    foto:    "16. Jogger Denim Uniqlo.jpeg",
+    harga:   "50 Kr",
+    label:   "fix",
+    kondisi: "baik",
+    status:  "tersedia",
+    desc:    "Celana jogger denim Uniqlo ukuran L. Kasual dan nyaman."
+  },
+  {
+    nama:    "Utility Pants H&M",
+    foto:    "17. Utility Pants H&M.jpeg",
+    harga:   "50 Kr",
+    label:   "fix",
+    kondisi: "baik",
+    status:  "tersedia",
+    desc:    "Celana utility H&M ukuran 40. Banyak kantong, praktis."
+  },
+  {
+    nama:    "Denim Pants Line Weekday",
+    foto:    "18. Denim Pants Line Weekday.jpeg",
+    harga:   "25 Kr",
+    label:   "fix",
+    kondisi: "cukup",
+    status:  "tersedia",
+    desc:    "Celana denim Weekday ukuran 30. Kancing copot 1, kondisi lainnya bagus."
+  },
+  {
+    nama:    "Celana Panjang Casual Black",
+    foto:    "19. Celana Panjang Casual Black.jpeg",
+    harga:   "25 Kr",
+    label:   "fix",
+    kondisi: "baik",
+    status:  "tersedia",
+    desc:    "Celana panjang casual hitam ukuran 31/30."
+  },
+  {
+    nama:    "Denim Pants A Day's March",
+    foto:    "20. Denim Pants A Day's March.jpeg",
+    harga:   "25 Kr",
+    label:   "fix",
+    kondisi: "baik",
+    status:  "tersedia",
+    desc:    "Celana denim A Day's March ukuran 31. Merek premium Swedia."
+  },
+  {
+    nama:    "Knitted Sweater 157",
+    foto:    "21. Knitted Sweater 157.jpeg",
+    harga:   "15 Kr",
+    label:   "fix",
+    kondisi: "baik",
+    status:  "tersedia",
+    desc:    "Sweater rajut ukuran M. Nyaman dan hangat."
+  },
+  {
+    nama:    "Sweatshirt Dress Vailent Purex",
+    foto:    "22. Sweatshirt Dress Vailent Purex.jpeg",
+    harga:   "Free",
+    label:   "",
+    kondisi: "baik",
+    status:  "tersedia",
+    desc:    "Sweatshirt dress Vailent Purex ukuran M."
+  },
+  {
+    nama:    "Sweater Dress Rajut H&M",
+    foto:    "23. Sweater Dress Rajut H&M.jpeg",
+    harga:   "15 Kr",
+    label:   "fix",
+    kondisi: "baik",
+    status:  "tersedia",
+    desc:    "Sweater dress rajut H&M ukuran XS."
+  },
+  {
+    nama:    "Jaket Puffer Burgundy Esmara",
+    foto:    "24. Jaket Puffer Burgundy Esmara.jpeg",
+    harga:   "25 Kr",
+    label:   "fix",
+    kondisi: "baik",
+    status:  "tersedia",
+    desc:    "Jaket puffer Esmara warna burgundy ukuran M/L."
+  },
+  {
+    nama:    "Puffer Vest Anak",
+    foto:    "25. Puffer Vest Anak Drop.jpeg",
+    harga:   "10 Kr",
+    label:   "fix",
+    kondisi: "baik",
+    status:  "tersedia",
+    desc:    "Rompi puffer anak ukuran 146. Ringan dan hangat."
+  },
+  {
+    nama:    "Jaket Softshell S.Oliver",
+    foto:    "26. Jaket Softshell S.Oliver.jpeg",
+    harga:   "10 Kr",
+    label:   "fix",
+    kondisi: "baik",
+    status:  "tersedia",
+    desc:    "Jaket softshell S.Oliver ukuran M/152."
+  },
+  {
+    nama:    "Long Overcoat Anak Viaggio Blu",
+    foto:    "27. Long Overcoat Anak Viaggio Blu.jpeg",
+    harga:   "10 Kr",
+    label:   "fix",
+    kondisi: "baik",
+    status:  "tersedia",
+    desc:    "Jas panjang anak merek Viaggio Blu. Elegan dan hangat."
+  },
+  {
+    nama:    "Winter Puffer Jacket GapKids",
+    foto:    "28. Winter Puffer Jacket GapKids.jpeg",
+    harga:   "15 Kr",
+    label:   "fix",
+    kondisi: "baik",
+    status:  "tersedia",
+    desc:    "Jaket puffer winter GapKids ukuran XXL (160/80)."
+  },
+  {
+    nama:    "Jacket Puffer Parka Winter Smog",
+    foto:    "29. Jacket Puffer Parka Winter Smog.jpeg",
+    harga:   "300 Kr",
     label:   "nego",
     kondisi: "baik",
     status:  "tersedia",
-    desc:    "Sepeda Jonna Gear 7 (jarang ada di pasaran) dengan kondisi masih sangat baik dan siap pakai. Semua fungsi berjalan normal, termasuk sistem gear 7-speed yang responsif dan nyaman untuk berbagai kondisi jalan.\nKondisi keseluruhan terawat, rangka kokoh, dan komponen masih original. Minus: tidak dilengkapi keranjang.\nSiap dipakai tanpa perlu perbaikan."
+    desc:    "Jaket puffer parka Smog ukuran L. Kondisi baru, belum banyak dipakai."
   },
   {
-    nama:      "Meja Kerja",
-    foto:      "meja_kerja.jpeg",
-    harga:     "Free",
-    label:     "",
-    kondisi:   "baik",
-    status:    "terjual",
-    soldLabel: "Booked",
-    desc:      "Maaf sudah ada yang booking, masih ada barang free yang lainnya ya."
+    nama:    "Jacket Puffer Winter Amisu",
+    foto:    "30. Jacket Puffer Winter Amisu.jpeg",
+    harga:   "190 Kr",
+    label:   "nego",
+    kondisi: "baik",
+    status:  "tersedia",
+    desc:    "Jaket puffer winter Amisu ukuran 36. Kondisi baru, hangat."
   },
   {
-    nama:    "Celana Winter Wanita",
-    foto:    "celana_winter_cewek.jpg",
-    harga:   "99 SEK",
+    nama:    "Jaket Winter The Duffer",
+    foto:    "31. Jaket Winter The Duffer.jpeg",
+    harga:   "50 Kr",
     label:   "fix",
     kondisi: "baik",
     status:  "tersedia",
-    desc:    "Celana winter wanita Cross Sportswear size L.\nTebal dan hangat! Pernah dipakai di Kiruna (Swedia) sama Rovaniemi (Finlandia) pas cuaca dingin, tetap nyaman.\nHigh waist, hitam polos, bahan windproof."
+    desc:    "Jaket winter The Duffer ukuran L. Kondisi bagus."
   },
   {
-    nama:    "Overall Anak",
-    foto:    "overall_anak.jpeg",
-    harga:   "39 SEK",
+    nama:    "Casual Parka Bugatti",
+    foto:    "32. Casual Parka pria Bugatti.jpeg",
+    harga:   "80 Kr",
     label:   "fix",
-    kondisi: "cukup",
+    kondisi: "baik",
     status:  "tersedia",
-    desc:    "**Overall anak McKinley ukuran 120, cocok untuk winter. Hangat, nyaman, dan siap dipakai di cuaca dingin.*"
+    desc:    "Casual parka pria Bugatti big size. Kondisi bagus."
   },
   {
-    nama:    "Baju Wanita 'Minimal'",
-    foto:    "baju_wanita_minimal.jpeg",
-    harga:   "19 SEK",
+    nama:    "Jaket Winter Anak Fix",
+    foto:    "33. Jaket Winter Anak Fix.jpeg",
+    harga:   "50 Kr",
     label:   "fix",
-    kondisi: "cukup",
+    kondisi: "baik",
     status:  "tersedia",
-    desc:    "Baju wanita merek Minimal dengan ukuran 36 (EUR)."
-  },
-    {
-    nama:    "Jaket Anak 'Cross Sportswear'",
-    foto:    "jaket_anak.jpeg",
-    harga:   "39 SEK",
-    label:   "fix",
-    kondisi: "cukup",
-    status:  "tersedia",
-    desc:    "Jaket anak Cross Sportswear ukuran 134/140, kondisi ada tambalan karena sobek dekat kantong, hangat dan nyaman dipakai untuk musim dingin."
-  },
-      {
-    nama:    "Jaket Anak Pink'North Bend'",
-    foto:    "jaket_anak_pink.jpeg",
-    harga:   "29 SEK",
-    label:   "fix",
-    kondisi: "cukup",
-    status:  "tersedia",
-    desc:    "Jaket winter anak warna pink merek North Bend ukuran 110, kondisi baik, hangat dan nyaman dipakai untuk musim dingin."
+    desc:    "Jaket winter anak merek Fix ukuran 134."
   },
   {
-    nama:    "Celana Outdoor/Winter Unisex Size L - Cross Sportswear",
-    foto:    "celana_outdoor_winter_unisex_L.jpeg",
-    harga:   "69 SEK",
+    nama:    "Jaket Winter Anak H&M",
+    foto:    "34. Jaket Winter Anak H&M.jpeg",
+    harga:   "50 Kr",
     label:   "fix",
-    kondisi: "cukup",
+    kondisi: "baik",
     status:  "tersedia",
-    desc:    "Celana winter Cross Sportswear ukuran L, model unisex. Didesain untuk cuaca dingin dengan bahan tebal, tahan angin, dan nyaman dipakai. Dilengkapi tali suspender yang adjustable serta beberapa kantong dengan resleting untuk penyimpanan praktis. Cocok untuk aktivitas outdoor saat musim dingin seperti hiking, ski, atau penggunaan harian. Kondisi baik dan siap pakai."
+    desc:    "Jaket winter anak H&M ukuran 128."
   },
   {
-    nama:    "Celana Outdoor/Winter Unisex Size M - Cross Sportswear",
-    foto:    "celana_outdoor_winter_unisex_L.jpeg",
-    harga:   "69 SEK",
-    label:   "fix",
-    kondisi: "cukup",
+    nama:    "Sepeda Monark",
+    foto:    "35. Sepeda Monark.jpeg",
+    harga:   "2000 Kr",
+    label:   "nego",
+    kondisi: "baik",
     status:  "tersedia",
-    desc:    "Celana winter Cross Sportswear ukuran L, model unisex. Didesain untuk cuaca dingin dengan bahan tebal, tahan angin, dan nyaman dipakai. Dilengkapi tali suspender yang adjustable serta beberapa kantong dengan resleting untuk penyimpanan praktis. Cocok untuk aktivitas outdoor saat musim dingin seperti hiking, ski, atau penggunaan harian. Kondisi baik dan siap pakai."
+    desc:    "Sepeda Monark 7 speed. Kondisi bagus, siap pakai."
   },
   {
-    nama:    "Rompi Winter Man Size L - Juste",
-    foto:    "rompi_winter_unisex_L.jpeg",
-    harga:   "19 SEK",
-    label:   "fix",
+    nama:    "Sepeda Ortler",
+    foto:    "36. Sepeda Ortler.jpeg",
+    harga:   "450 Kr",
+    label:   "nego",
     kondisi: "cukup",
     status:  "tersedia",
-    desc:    "Rompi winter merek Juste ukuran L, kondisi baik, hangat dan nyaman dipakai untuk cuaca dingin. Cocok untuk layering sehari-hari maupun aktivitas outdoor."
+    desc:    "Sepeda Ortler 7 speed. Gear patah, perlu perbaikan ringan."
   },
   {
-    nama:    "Jaket Wanita Size L - Neomondo",
-    foto:    "jaket_neomondo.jpeg",
-    harga:   "29 SEK",
+    nama:    "Helm Dewasa",
+    foto:    "37. Helm Dewasa.jpeg",
+    harga:   "50 Kr",
     label:   "fix",
-    kondisi: "cukup",
+    kondisi: "baik",
     status:  "tersedia",
-    desc:    "Jaket merek Neomondo ukuran L, kondisi baik, nyaman dipakai untuk aktivitas sehari-hari maupun outdoor ringan. Siap digunakan."
+    desc:    "Helm sepeda dewasa ukuran M/L. Kondisi bagus."
   },
   {
-    nama:    "Celana overall anak merek Ocean Works",
-    foto:    "celana_overall_anak_ocean_works.jpeg",
-    harga:   "29 SEK",
+    nama:    "Helm Anak",
+    foto:    "38. Helm Anak.jpeg",
+    harga:   "35 Kr",
     label:   "fix",
+    kondisi: "baik",
+    status:  "tersedia",
+    desc:    "Helm sepeda anak ukuran M."
+  },
+  {
+    nama:    "Sepatu Winter Quechua",
+    foto:    "39. Sepatu Winter Quechua.jpeg",
+    harga:   "Free",
+    label:   "",
     kondisi: "cukup",
     status:  "tersedia",
-    desc:    "Celana overall anak merek Ocean Works ukuran 134/140, model waterproof cocok untuk cuaca dingin atau hujan. Dilengkapi suspender adjustable agar pas di badan, dengan karet di bagian pinggang untuk kenyamanan. Bagian bawah terdapat reflektor untuk keamanan saat kondisi gelap. Cocok untuk bermain outdoor, kondisi baik dan siap pakai."
+    desc:    "Sepatu winter Quechua ukuran 41. Ada sedikit terkelupas di bagian luar."
   },
-  
+  {
+    nama:    "Boots Rantai",
+    foto:    "40. Boots Rantai.jpeg",
+    harga:   "150 Kr",
+    label:   "fix",
+    kondisi: "baik",
+    status:  "tersedia",
+    desc:    "Boots dengan detail rantai ukuran 40. Kondisi bagus."
+  },
+  {
+    nama:    "Boots Rendah Wanita",
+    foto:    "41. Boots Rendah Wanita.jpeg",
+    harga:   "150 Kr",
+    label:   "fix",
+    kondisi: "baik",
+    status:  "tersedia",
+    desc:    "Ankle boots wanita ukuran 41. Kondisi bagus."
+  },
+  {
+    nama:    "Boots Anak Ski Industries",
+    foto:    "42. Boots Anak Ski Industries.jpeg",
+    harga:   "50 Kr",
+    label:   "fix",
+    kondisi: "baik",
+    status:  "tersedia",
+    desc:    "Boots anak Ski Industries ukuran 33."
+  },
+  {
+    nama:    "Boots Winter Kulit 5TH Avenue",
+    foto:    "43. Boots Winter Kulit 5TH Avenue.jpeg",
+    harga:   "500 Kr",
+    label:   "nego",
+    kondisi: "baik",
+    status:  "tersedia",
+    desc:    "Boots winter kulit premium 5TH Avenue ukuran 40. Kondisi bagus."
+  },
+  {
+    nama:    "Sepatu Waterproof Anak",
+    foto:    "44. Sepatu Water proof Anak.jpeg",
+    harga:   "Free",
+    label:   "",
+    kondisi: "cukup",
+    status:  "tersedia",
+    desc:    "Sepatu waterproof anak ukuran 33. Sedikit terkelupas di bagian luar."
+  },
+  {
+    nama:    "Sepatu Casual Converse Anak",
+    foto:    "45. Sepatu Casual Concerse Anak.jpeg",
+    harga:   "Free",
+    label:   "",
+    kondisi: "cukup",
+    status:  "tersedia",
+    desc:    "Sepatu Converse anak ukuran 33. Tali putus sebelah."
+  },
+  {
+    nama:    "Deep Fryer Siemens",
+    foto:    "46. Deep Fryer Siemens.jpeg",
+    harga:   "Free",
+    label:   "",
+    kondisi: "baik",
+    status:  "tersedia",
+    desc:    "Deep fryer Siemens. Kondisi bagus, berfungsi normal."
+  },
+  {
+    nama:    "Pulka Stiga Snowrocket 110",
+    foto:    "47. Pulka Stiga Snowrocket 110.jpeg",
+    harga:   "Free",
+    label:   "",
+    kondisi: "cukup",
+    status:  "tersedia",
+    desc:    "Pulka (kereta salju) Stiga Snowrocket 110. Ada bagian yang patah."
+  },
 ];
 
 /* ═══════════════════════════════════════════════════════════ */

@@ -89,6 +89,25 @@
       background:var(--ink);color:var(--paper);transform:rotate(var(--r)) scale(1.05)
     }
 
+    .filter-status {
+      font-family:'Caveat',cursive;font-size:1.25rem;font-weight:700;
+      padding:0.5rem 1.8rem;border:3px solid var(--ink);background:transparent;
+      cursor:pointer;transition:all 0.15s;position:relative;letter-spacing:.02em
+    }
+    .filter-status:nth-child(1){ border-color:var(--ink) }
+    .filter-status:nth-child(2){ border-color:var(--green);color:var(--green) }
+    .filter-status:nth-child(3){ border-color:#999;color:#999 }
+    .filter-status:hover,
+    .filter-status.active {
+      color:var(--paper);transform:scale(1.07)
+    }
+    .filter-status:nth-child(1).active,
+    .filter-status:nth-child(1):hover { background:var(--ink) }
+    .filter-status:nth-child(2).active,
+    .filter-status:nth-child(2):hover { background:var(--green);border-color:var(--green);color:var(--paper) }
+    .filter-status:nth-child(3).active,
+    .filter-status:nth-child(3):hover { background:#999;border-color:#999;color:var(--paper) }
+
     .grid {
       position:relative;z-index:10;columns:1;column-gap:1.5rem;
       padding:1rem 1.5rem 4rem;max-width:1200px;margin:auto

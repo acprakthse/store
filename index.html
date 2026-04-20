@@ -300,6 +300,11 @@
   <button class="filter-tag" data-filter="elektronik">◉ Elektronik</button>
   <button class="filter-tag" data-filter="sepatu-acc">◇ Sepatu &amp; Acc</button>
 </div>
+<div class="filter-row" style="padding-top:0">
+  <button class="filter-status active" data-status="all">◯ Semua</button>
+  <button class="filter-status" data-status="tersedia">● Tersedia</button>
+  <button class="filter-status" data-status="terjual">✕ Terjual</button>
+</div>
 
 <!-- ═══ GRID — diisi otomatis dari ITEMS ═══ -->
 <div class="grid" id="grid"></div>
@@ -1053,20 +1058,32 @@ lbClose.addEventListener('click', closeLightbox);
 lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
 
 // ── Filter ──
+let activeKat    = 'all';
+let activeStatus = 'all';
+
+function applyFilters() {
+  document.querySelectorAll('.card').forEach(card => {
+    const katOk    = activeKat === 'all' || card.dataset.kat    === activeKat;
+    const statusOk = activeStatus === 'all' || card.dataset.status === activeStatus;
+    card.classList.toggle('hidden', !(katOk && statusOk));
+  });
+}
+
 document.querySelectorAll('.filter-tag').forEach(tag => {
   tag.addEventListener('click', () => {
     document.querySelectorAll('.filter-tag').forEach(t => t.classList.remove('active'));
     tag.classList.add('active');
-    const f = tag.dataset.filter;
-    document.querySelectorAll('.card').forEach(card => {
-      const show =
-        f === 'all'         ? true :
-        f === 'sepeda'      ? card.dataset.kat === 'sepeda' :
-        f === 'pakaian'     ? card.dataset.kat === 'pakaian' :
-        f === 'elektronik'  ? card.dataset.kat === 'elektronik' :
-        f === 'sepatu-acc'  ? card.dataset.kat === 'sepatu-acc' : true;
-      card.classList.toggle('hidden', !show);
-    });
+    activeKat = tag.dataset.filter;
+    applyFilters();
+  });
+});
+
+document.querySelectorAll('.filter-status').forEach(tag => {
+  tag.addEventListener('click', () => {
+    document.querySelectorAll('.filter-status').forEach(t => t.classList.remove('active'));
+    tag.classList.add('active');
+    activeStatus = tag.dataset.status;
+    applyFilters();
   });
 });
 

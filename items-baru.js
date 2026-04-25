@@ -10,7 +10,7 @@ const ITEMS_BARU = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "sepatu-acc",
     desc:    "Sarung tangan winter untuk dewasa dan anak."
   },
@@ -70,7 +70,7 @@ const ITEMS_BARU = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "sepatu-acc",
     desc:    "Hood warmer warna coklat."
   },
@@ -80,7 +80,7 @@ const ITEMS_BARU = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "sepatu-acc",
     desc:    "Hood warmer warna hitam."
   },
@@ -220,7 +220,7 @@ const ITEMS_BARU = [
     harga:   "25 SEK",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "pakaian",
     desc:    "Sweater H&M untuk pria."
   },
@@ -250,7 +250,7 @@ const ITEMS_BARU = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "pakaian",
     desc:    "Long johns / pakaian dalam panjang pria ukuran L."
   },

@@ -320,8 +320,8 @@
   <button class="filter-tag" data-filter="sepatu-acc">◇ Sepatu &amp; Acc</button>
 </div>
 <div class="filter-row" style="padding-top:0">
-  <button class="filter-status active" data-status="all">◯ Semua</button>
-  <button class="filter-status" data-status="tersedia">● Tersedia</button>
+  <button class="filter-status" data-status="all">◯ Semua</button>
+  <button class="filter-status active" data-status="tersedia">● Tersedia</button>
   <button class="filter-status" data-status="terjual">✕ Terjual</button>
 </div>
 
@@ -335,6 +335,7 @@
   <p style="margin-top:.5rem">© 2026 Ardian Candra · ardiancandra.com</p>
 </footer>
 
+<script src="items-baru.js"></script>
 <script>
 /* ╔═══════════════════════════════════════════════════════════╗
    ║                   KONFIGURASI UTAMA                       ║
@@ -956,6 +957,7 @@ const WA_ICON = `<svg width="18" height="18" viewBox="0 0 24 24" fill="currentCo
 
 // ── Kategorisasi otomatis ──
 function getKat(item) {
+  if (item.kat) return item.kat;           // eksplisit dari data
   const n = item.nama.toLowerCase();
   if (/sepeda|jonna/.test(n))                                           return 'sepeda';
   if (/helm/.test(n))                                                   return 'sepeda';
@@ -969,8 +971,9 @@ function getKat(item) {
 
 // ── Render cards dari ITEMS ──
 const grid = document.getElementById('grid');
+const ALL_ITEMS = [...ITEMS, ...(typeof ITEMS_BARU !== 'undefined' ? ITEMS_BARU : [])];
 
-ITEMS.forEach((item, i) => {
+ALL_ITEMS.forEach((item, i) => {
   const num     = String(i + 1).padStart(2, '0');
   const isSold  = item.status === 'terjual';
   const kondisi = item.kondisi || 'baik';
@@ -1078,7 +1081,7 @@ lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightb
 
 // ── Filter ──
 let activeKat    = 'all';
-let activeStatus = 'all';
+let activeStatus = 'tersedia';
 
 function applyFilters() {
   document.querySelectorAll('.card').forEach(card => {

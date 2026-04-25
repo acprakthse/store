@@ -262,6 +262,6 @@ const ITEMS_BARU = [
     kondisi: "baik",
     status:  "tersedia",
     kat:     "pakaian",
-    desc:    "Baju base layer ukuran M."
+    desc:    "Baju base layer ukuran M untuk wanita."
   },
 ];

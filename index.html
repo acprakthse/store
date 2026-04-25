@@ -1109,6 +1109,8 @@ document.querySelectorAll('.filter-status').forEach(tag => {
   });
 });
 
+applyFilters(); // terapkan filter default saat halaman pertama load
+
 // ── Parallax blobs ──
 document.addEventListener('mousemove', e => {
   const x = (e.clientX / innerWidth  - 0.5) * 20;

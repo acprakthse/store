@@ -42,7 +42,7 @@ const ITEMS_BARU = [
     kondisi: "baik",
     status:  "tersedia",
     kat:     "sepatu-acc",
-    desc:    "Sarung tangan kulit dewasa unisex (pria & wanita)."
+    desc:    "Sarung tangan kulit dewasa unisex (pria & wanita) yang masih tersedia No.1."
   },
   {
     nama:    "Sarung Tangan Winter (size 6, 7 & 10)",
@@ -52,7 +52,7 @@ const ITEMS_BARU = [
     kondisi: "baik",
     status:  "tersedia",
     kat:     "sepatu-acc",
-    desc:    "Sarung tangan winter tersedia ukuran 6, 7, dan 10."
+    desc:    "Sarung tangan winter yang masih tersediaukuran 6 dan 7"
   },
   {
     nama:    "Kupluk Winter / Beanie Hat",
@@ -62,7 +62,7 @@ const ITEMS_BARU = [
     kondisi: "baik",
     status:  "tersedia",
     kat:     "sepatu-acc",
-    desc:    "Kupluk / beanie hat untuk musim dingin."
+    desc:    "Yang masih ready no. 1,3,4 dan 6 ."
   },
   {
     nama:    "Hood Warmer Coklat",
@@ -110,7 +110,7 @@ const ITEMS_BARU = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terJjual",
     kat:     "sepatu-acc",
     desc:    "Kain ihram kondisi bagus."
   },

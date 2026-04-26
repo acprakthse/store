@@ -210,7 +210,7 @@ const ITEMS_BARU = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "pakaian",
     desc:    "Celana cutbray warna navy."
   },

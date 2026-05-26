@@ -40,7 +40,7 @@ const ITEMS_BARU3 = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "pakaian",
     desc:    "Baju anak H&M ukuran 134/140."
   },
@@ -50,7 +50,7 @@ const ITEMS_BARU3 = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "pakaian",
     desc:    "Baju anak H&M ukuran 134/140."
   },
@@ -60,7 +60,7 @@ const ITEMS_BARU3 = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "pakaian",
     desc:    "Baju anak H&M ukuran 134/140."
   },
@@ -70,7 +70,7 @@ const ITEMS_BARU3 = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "pakaian",
     desc:    "Baju anak H&M ukuran 134/140."
   },

@@ -20,7 +20,7 @@ const ITEMS_BARU = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "sepatu-acc",
     desc:    "Sarung tangan winter khusus anak."
   },
@@ -90,7 +90,7 @@ const ITEMS_BARU = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "sepatu-acc",
     desc:    "Syal hangat untuk anak."
   },
@@ -240,7 +240,7 @@ const ITEMS_BARU = [
     harga:   "15 SEK",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "tersjual",
     kat:     "pakaian",
     desc:    "Kemeja wanita H&M ukuran XS."
   },

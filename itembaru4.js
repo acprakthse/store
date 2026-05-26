@@ -70,7 +70,7 @@ const ITEMS_BARU4 = [
     harga:   "30 Kr",
     label:   "fix",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "lainnya",
     desc:    "Karpet H&M ukuran 140x200cm."
   },
@@ -90,7 +90,7 @@ const ITEMS_BARU4 = [
     harga:   "5 Kr",
     label:   "fix",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "lainnya",
     desc:    "Alas meja kondisi bagus."
   },
@@ -150,7 +150,7 @@ const ITEMS_BARU4 = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "lainnya",
     desc:    "Keset motif lemon kondisi bagus."
   },
@@ -160,7 +160,7 @@ const ITEMS_BARU4 = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "lainnya",
     desc:    "Keset bertuliskan welcome kondisi bagus."
   },
@@ -190,7 +190,7 @@ const ITEMS_BARU4 = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "lainnya",
     desc:    "Pot bunga kondisi bagus."
   },
@@ -210,7 +210,7 @@ const ITEMS_BARU4 = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "lainnya",
     desc:    "Sajadah lipat warna abu kondisi bagus."
   },
@@ -220,7 +220,7 @@ const ITEMS_BARU4 = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "tersjual",
     kat:     "lainnya",
     desc:    "Sajadah lipat warna hijau kondisi bagus."
   },
@@ -230,7 +230,7 @@ const ITEMS_BARU4 = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "lainnya",
     desc:    "Sajadah lipat warna maroon kondisi bagus."
   },
@@ -276,7 +276,7 @@ const ITEMS_BARU4 = [
   },
     {
     nama:    "Baju koko KhoirUmmah ukuran XL (ukuran Asia) ",
-    foto:    "Baju koko KhoirUmmah ukuran XL (ukuran Asia) 110 kr.jpeg",
+    foto:    "baru4/Baju koko KhoirUmmah ukuran XL (ukuran Asia) 110 kr.jpeg",
     harga:   "60 Kr",
     label:   "",
     kondisi: "baru",

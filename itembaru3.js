@@ -20,7 +20,7 @@ const ITEMS_BARU3 = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "lainnya",
     desc:    "Cobek batu kondisi bagus."
   },
@@ -110,7 +110,7 @@ const ITEMS_BARU3 = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "pakaian",
     desc:    "Jaket fleece warna abu 157 ukuran L."
   },
@@ -140,7 +140,7 @@ const ITEMS_BARU3 = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "pakaian",
     desc:    "Jaket Rosebud ukuran M."
   },
@@ -180,7 +180,7 @@ const ITEMS_BARU3 = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "pakaian",
     desc:    "Longdress Moda Makkon ukuran M."
   },
@@ -200,7 +200,7 @@ const ITEMS_BARU3 = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "pakaian",
     desc:    "Rok jeans kondisi bagus."
   },
@@ -260,7 +260,7 @@ const ITEMS_BARU3 = [
     harga:   "10 Kr",
     label:   "fix",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "lainnya",
     desc:    "Termos air kondisi bagus."
   },

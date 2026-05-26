@@ -160,7 +160,7 @@ const ITEMS_BARU = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "sepatu-acc",
     desc:    "Jilbab pasmina instan untuk anak."
   },

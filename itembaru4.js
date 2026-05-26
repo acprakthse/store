@@ -274,4 +274,14 @@ const ITEMS_BARU4 = [
     kat:     "pakaian",
     desc:    "Sweater Pima Cotton ukuran M kondisi bagus."
   },
+    {
+    nama:    "Baju koko KhoirUmmah ukuran XL (ukuran Asia) ",
+    foto:    "Baju koko KhoirUmmah ukuran XL (ukuran Asia) 110 kr.jpeg",
+    harga:   "60 Kr",
+    label:   "",
+    kondisi: "baru",
+    status:  "tersedia",
+    kat:     "pakaian",
+    desc:    "Baju koko Khoir Ummah ukuran XL (ukuran Asia) kondisi baru."
+  },
 ];

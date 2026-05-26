@@ -154,16 +154,16 @@ const ITEMS_BARU = [
     kat:     "sepatu-acc",
     desc:    "Jilbab dewasa model pat."
   },
-  {
-    nama:    "Jilbab Pasmina Instan Anak",
-    foto:    "baru/16. Jilbab Pasmina Instan Anak.jpeg",
-    harga:   "Free",
-    label:   "",
-    kondisi: "baik",
-    status:  "terjual",
-    kat:     "sepatu-acc",
-    desc:    "Jilbab pasmina instan untuk anak."
-  },
+  // {
+  //   nama:    "Jilbab Pasmina Instan Anak",
+  //   foto:    "baru/16. Jilbab Pasmina Instan Anak.jpeg",
+  //   harga:   "Free",
+  //   label:   "",
+  //   kondisi: "baik",
+  //   status:  "terjual",
+  //   kat:     "sepatu-acc",
+  //   desc:    "Jilbab pasmina instan untuk anak."
+  // },
   {
     nama:    "Jilbab Tali Anak",
     foto:    "baru/17. Jilbab Tali Anak.jpeg",
@@ -172,7 +172,7 @@ const ITEMS_BARU = [
     kondisi: "baik",
     status:  "tersedia",
     kat:     "sepatu-acc",
-    desc:    "Jilbab model tali untuk anak."
+    desc:    "Jilbab model tali untuk anak. Avaialbele no. 1"
   },
   {
     nama:    "Peci Rajut",
@@ -182,7 +182,7 @@ const ITEMS_BARU = [
     kondisi: "baik",
     status:  "tersedia",
     kat:     "sepatu-acc",
-    desc:    "Peci rajut kondisi bagus."
+    desc:    "Peci rajut kondisi bagus. Avalable no. 2"
   },
   {
     nama:    "Long Trousers Wanita",

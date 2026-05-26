@@ -1061,7 +1061,11 @@ ALL_ITEMS.forEach((item, i) => {
     ? `<p class="card-price">${item.harga} <span>${item.label}</span></p>`
     : `<p class="card-price">${item.harga}</p>`;
 
-  const msg   = encodeURIComponent(`Halo Ardian! Saya tertarik dengan ${item.nama} 😊`);
+  const baseUrl = window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '');
+  const firstPhoto = photos.length ? baseUrl + '/' + photos[0] : '';
+  const msgLines = [`Halo Ardian! Saya tertarik dengan *${item.nama}* (${item.harga}) 😊`];
+  if (firstPhoto) msgLines.push(`\nFoto: ${firstPhoto}`);
+  const msg   = encodeURIComponent(msgLines.join('\n'));
   const waBtn = !isSold
     ? `<a class="wa-btn" href="https://wa.me/${WA_NUMBER}?text=${msg}" target="_blank">${WA_ICON} Chat di WhatsApp</a>`
     : '';

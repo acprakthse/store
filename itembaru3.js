@@ -4,16 +4,16 @@
    ═══════════════════════════════════════════════════════════ */
 
 const ITEMS_BARU3 = [
-  {
-    nama:    "Atasan Wanita Rurik M/L",
-    foto:    "baru3/Atasan Wanita Rurik ukuran ML.jpeg",
-    harga:   "Free",
-    label:   "",
-    kondisi: "baik",
-    status:  "terjual",
-    kat:     "pakaian",
-    desc:    "Atasan wanita merek Rurik ukuran M/L."
-  },
+  // {
+  //   nama:    "Atasan Wanita Rurik M/L",
+  //   foto:    "baru3/Atasan Wanita Rurik ukuran ML.jpeg",
+  //   harga:   "Free",
+  //   label:   "",
+  //   kondisi: "baik",
+  //   status:  "terjual",
+  //   kat:     "pakaian",
+  //   desc:    "Atasan wanita merek Rurik ukuran M/L."
+  // },
   {
     nama:    "Cobek",
     foto:    "baru3/Cobek.jpeg",

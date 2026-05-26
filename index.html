@@ -982,7 +982,8 @@ ALL_ITEMS.forEach((item, i) => {
   const num     = String(i + 1).padStart(2, '0');
   const isSold  = item.status === 'terjual';
   const kondisi = item.kondisi || 'baik';
-  const photos  = Array.isArray(item.foto) ? item.foto : (item.foto ? [item.foto] : []);
+  const photos  = (Array.isArray(item.foto) ? item.foto : (item.foto ? [item.foto] : []))
+                  .map(f => f.includes('/') ? f : 'barang old/' + f);
 
   const stickerClass = isSold ? 'terjual' : `kondisi-${kondisi}`;
   const stickerText  = isSold

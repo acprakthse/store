@@ -110,7 +110,7 @@ const ITEMS_BARU = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "terJjual",
+    status:  "terjual",
     kat:     "sepatu-acc",
     desc:    "Kain ihram kondisi bagus."
   },

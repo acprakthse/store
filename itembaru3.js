@@ -160,7 +160,7 @@ const ITEMS_BARU3 = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "pakaian",
     desc:    "Jaket winter anak 157 ukuran 140."
   },

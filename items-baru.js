@@ -30,7 +30,8 @@ const ITEMS_BARU = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual
+    ",
     kat:     "sepatu-acc",
     desc:    "Neck warmer untuk menghangatkan leher di cuaca dingin."
   },
@@ -40,7 +41,7 @@ const ITEMS_BARU = [
     harga:   "30 SEK per pasang",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "sepatu-acc",
     desc:    "Sarung tangan kulit dewasa unisex (pria & wanita) yang masih tersedia No.1."
   },
@@ -52,7 +53,7 @@ const ITEMS_BARU = [
     kondisi: "baik",
     status:  "tersedia",
     kat:     "sepatu-acc",
-    desc:    "Sarung tangan winter yang masih tersediaukuran 6 dan 7"
+    desc:    "Sarung tangan winter yang masih tersedia ukuran 6"
   },
   {
     nama:    "Kupluk Winter / Beanie Hat",
@@ -100,7 +101,7 @@ const ITEMS_BARU = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "sepatu-acc",
     desc:    "Set syal dan neck warmer."
   },

@@ -10,7 +10,7 @@ const ITEMS_BARU4 = [
     harga:   "10 Kr",
     label:   "fix",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "lainnya",
     desc:    "Toples kondisi bagus."
   },
@@ -30,7 +30,7 @@ const ITEMS_BARU4 = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "lainnya",
     desc:    "Toples kondisi bagus."
   },
@@ -120,7 +120,7 @@ const ITEMS_BARU4 = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "lainnya",
     desc:    "Keset kondisi bagus."
   },
@@ -130,7 +130,7 @@ const ITEMS_BARU4 = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "lainnya",
     desc:    "Keset kondisi bagus."
   },
@@ -140,7 +140,7 @@ const ITEMS_BARU4 = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "lainnya",
     desc:    "Keset kondisi bagus."
   },
@@ -180,7 +180,7 @@ const ITEMS_BARU4 = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "lainnya",
     desc:    "Sarung tangan oven kondisi bagus."
   },
@@ -260,7 +260,7 @@ const ITEMS_BARU4 = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "pakaian",
     desc:    "Sweater kondisi bagus."
   },

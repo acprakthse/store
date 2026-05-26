@@ -384,6 +384,26 @@
   <button class="filter-status" data-status="terjual">✕ Terjual</button>
 </div>
 
+<!-- ═══ SUMMARY ═══ -->
+<div id="summary-bar" style="
+  position:relative;z-index:10;
+  display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;
+  padding:0 2rem 1.5rem;
+">
+  <span style="
+    font-family:'Caveat',cursive;font-size:1.1rem;font-weight:700;
+    background:var(--green);color:white;
+    padding:.3rem 1.1rem;border:2px solid var(--ink);
+    box-shadow:2px 2px 0 var(--ink);
+  ">● Tersedia: <span id="count-tersedia">–</span></span>
+  <span style="
+    font-family:'Caveat',cursive;font-size:1.1rem;font-weight:700;
+    background:var(--blue);color:white;
+    padding:.3rem 1.1rem;border:2px solid var(--ink);
+    box-shadow:2px 2px 0 var(--ink);
+  ">🎁 Give Away: <span id="count-free">–</span></span>
+</div>
+
 <!-- ═══ GRID — diisi otomatis dari ITEMS ═══ -->
 <div class="grid" id="grid"></div>
 
@@ -1038,6 +1058,11 @@ const ALL_ITEMS = [
   ...(typeof ITEMS_BARU3 !== 'undefined' ? ITEMS_BARU3 : []),
   ...(typeof ITEMS_BARU4 !== 'undefined' ? ITEMS_BARU4 : []),
 ];
+
+const tersedia  = ALL_ITEMS.filter(it => it.status === 'tersedia');
+const giveaway  = tersedia.filter(it => it.harga === 'Free');
+document.getElementById('count-tersedia').textContent = tersedia.length + ' barang';
+document.getElementById('count-free').textContent     = giveaway.length + ' barang';
 
 ALL_ITEMS.forEach((item, i) => {
   const num     = String(i + 1).padStart(2, '0');

@@ -20,7 +20,7 @@ const ITEMS_BARU4 = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "lainnya",
     desc:    "Toples kondisi bagus."
   },

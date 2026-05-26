@@ -210,7 +210,7 @@ const ITEMS_BARU3 = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "lainnya",
     desc:    "Set piring, mangkok, dan gelas kondisi bagus."
   },

@@ -80,7 +80,7 @@ const ITEMS_BARU3 = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "lainnya",
     desc:    "Hanger pakaian."
   },

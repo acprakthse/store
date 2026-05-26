@@ -40,7 +40,7 @@ const ITEMS_BARU4 = [
     harga:   "15 Kr",
     label:   "fix",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     kat:     "lainnya",
     desc:    "Mangkok Ikea, harga per pcs 15 Kr."
   },

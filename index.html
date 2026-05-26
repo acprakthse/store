@@ -1061,13 +1061,13 @@ ALL_ITEMS.forEach((item, i) => {
     ? `<p class="card-price">${item.harga} <span>${item.label}</span></p>`
     : `<p class="card-price">${item.harga}</p>`;
 
-  const rawMsg = `Halo Ardian! Saya tertarik dengan *${item.nama}* (${item.harga}) 😊`;
-  const firstPhoto = photos.length ? photos[0] : '';
+  const baseUrl = window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '');
+  const firstPhoto = photos.length ? baseUrl + '/' + photos[0].split('/').map(encodeURIComponent).join('/') : '';
+  const msgLines = [`Halo Ardian! Saya tertarik dengan *${item.nama}* (${item.harga}) 😊`];
+  if (firstPhoto) msgLines.push(`\nFoto: ${firstPhoto}`);
+  const msg   = encodeURIComponent(msgLines.join('\n'));
   const waBtn = !isSold
-    ? `<button class="wa-btn"
-         data-msg="${rawMsg.replace(/"/g,'&quot;')}"
-         data-photo="${firstPhoto}"
-       >${WA_ICON} Chat di WhatsApp</button>`
+    ? `<a class="wa-btn" href="https://wa.me/${WA_NUMBER}?text=${msg}" target="_blank">${WA_ICON} Chat di WhatsApp</a>`
     : '';
 
   const div = document.createElement('div');
@@ -1180,32 +1180,6 @@ document.querySelectorAll('.filter-status').forEach(tag => {
 
 applyFilters(); // terapkan filter default saat halaman pertama load
 
-// ── WA Share Button ──
-document.getElementById('grid').addEventListener('click', async e => {
-  const btn = e.target.closest('.wa-btn[data-msg]');
-  if (!btn) return;
-
-  const text      = btn.dataset.msg;
-  const photoPath = btn.dataset.photo;
-
-  if (photoPath && navigator.canShare) {
-    try {
-      btn.disabled = true;
-      const res  = await fetch(photoPath);
-      const blob = await res.blob();
-      const file = new File([blob], photoPath.split('/').pop(), { type: blob.type });
-      if (navigator.canShare({ files: [file] })) {
-        await navigator.share({ files: [file], text });
-        return;
-      }
-    } catch (_) {
-    } finally {
-      btn.disabled = false;
-    }
-  }
-
-  window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`, '_blank');
-});
 
 // ── Parallax blobs ──
 document.addEventListener('mousemove', e => {

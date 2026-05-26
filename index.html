@@ -363,7 +363,7 @@
 <!-- ═══ HEADER ═══ -->
 <header>
   <div class="header-stamp"><h1>Moving<br>Out Sale</h1></div>
-  <p class="header-sub">barang second hand · kondisi jelas · hub. via WhatsApp</p>
+  <p class="header-sub">barang second hand</p>
   <svg class="scribble-divider" viewBox="0 0 700 30" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M10 15 Q80 5,160 18 T320 12 T480 20 T640 10 T690 15" stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.3"/>
     <path d="M30 20 Q100 8,200 22 T400 8 T600 18 T680 12" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.15"/>
@@ -396,6 +396,7 @@
 
 <script src="items-baru.js"></script>
 <script src="itembaru3.js"></script>
+<script src="itembaru4.js"></script>
 <script>
 /* ╔═══════════════════════════════════════════════════════════╗
    ║                   KONFIGURASI UTAMA                       ║
@@ -435,7 +436,7 @@ const ITEMS = [
   {
     nama:    "Jaket Winter Amisu",
     foto:    "2. Jaket Winter Amisu.jpeg",
-    harga:   "295 Kr",
+    harga:   "195 Kr",
     label:   "fix",
     kondisi: "baik",
     status:  "tersedia",
@@ -537,7 +538,7 @@ const ITEMS = [
     harga:   "Free",
     label:   "",
     kondisi: "baik",
-    status:  "tersedia",
+    status:  "terjual",
     desc:    "Kaos lengan panjang Uniqlo ukuran M."
   },
   {
@@ -678,7 +679,7 @@ const ITEMS = [
   {
     nama:    "Jacket Puffer Parka Winter Smog",
     foto:    "29. Jacket Puffer Parka Winter Smog.jpeg",
-    harga:   "300 Kr",
+    harga:   "195 Kr",
     label:   "nego",
     kondisi: "baik",
     status:  "tersedia",
@@ -877,7 +878,7 @@ const ITEMS = [
   {
     nama:    "Printer Epson ET 2865",
     foto:    "printer.jpeg",
-    harga:   "1099 Kr",
+    harga:   "999 Kr",
     label:   "fix",
     kondisi: "baik",
     status:  "tersedia",
@@ -1035,6 +1036,7 @@ const ALL_ITEMS = [
   ...ITEMS,
   ...(typeof ITEMS_BARU  !== 'undefined' ? ITEMS_BARU  : []),
   ...(typeof ITEMS_BARU3 !== 'undefined' ? ITEMS_BARU3 : []),
+  ...(typeof ITEMS_BARU4 !== 'undefined' ? ITEMS_BARU4 : []),
 ];
 
 ALL_ITEMS.forEach((item, i) => {

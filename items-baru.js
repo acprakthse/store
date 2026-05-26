@@ -241,7 +241,7 @@ const ITEMS_BARU = [
     harga:   "15 SEK",
     label:   "",
     kondisi: "baik",
-    status:  "tersjual",
+    status:  "terjual",
     kat:     "pakaian",
     desc:    "Kemeja wanita H&M ukuran XS."
   },

@@ -336,6 +336,7 @@
 </footer>
 
 <script src="items-baru.js"></script>
+<script src="itembaru3.js"></script>
 <script>
 /* ╔═══════════════════════════════════════════════════════════╗
    ║                   KONFIGURASI UTAMA                       ║
@@ -971,7 +972,11 @@ function getKat(item) {
 
 // ── Render cards dari ITEMS ──
 const grid = document.getElementById('grid');
-const ALL_ITEMS = [...ITEMS, ...(typeof ITEMS_BARU !== 'undefined' ? ITEMS_BARU : [])];
+const ALL_ITEMS = [
+  ...ITEMS,
+  ...(typeof ITEMS_BARU  !== 'undefined' ? ITEMS_BARU  : []),
+  ...(typeof ITEMS_BARU3 !== 'undefined' ? ITEMS_BARU3 : []),
+];
 
 ALL_ITEMS.forEach((item, i) => {
   const num     = String(i + 1).padStart(2, '0');

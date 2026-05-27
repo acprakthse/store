@@ -655,7 +655,7 @@ document.addEventListener('mousemove', e => {
 
 // ── Load & render dari items.csv ──
 async function init() {
-  const resp = await fetch('items.csv');
+  const resp = await fetch('items.csv', { cache: 'no-cache' });
   const ALL_ITEMS = parseCSV(await resp.text());
 
   const tersedia = ALL_ITEMS.filter(it => it.status === 'tersedia');

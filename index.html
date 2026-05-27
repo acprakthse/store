@@ -488,7 +488,7 @@
   ">🎁 Give Away: <span id="count-free">–</span></span>
 </div>
 
-<!-- ═══ GRID — diisi otomatis dari ITEMS ═══ -->
+<!-- ═══ GRID — diisi otomatis dari items.csv ═══ -->
 <div class="grid" id="grid"></div>
 
 <footer>
@@ -498,774 +498,70 @@
   <p style="margin-top:.5rem">© 2026 Ardian Candra · ardiancandra.com</p>
 </footer>
 
-<script src="items-baru.js"></script>
-<script src="itembaru3.js"></script>
-<script src="itembaru4.js"></script>
 <script>
-/* ╔═══════════════════════════════════════════════════════════╗
-   ║                   KONFIGURASI UTAMA                       ║
-   ╚═══════════════════════════════════════════════════════════╝ */
-const NO_AYAH = '628117545544';  // ← ganti nama pemilik barang di sini (sekali aja)
-const NO_BUNDA = '628116909706';  // ← ganti nomor WA di sini (sekali aja)
-
-const WA_NUMBER = NO_BUNDA;  // ← ganti nomor WA di sini (sekali aja)
-
-/* ── DATABASE BARANG ─────────────────────────────────────────
-   Tambah barang baru: copy satu blok { ... }, paste di bawahnya,
-   edit isinya. Pisah tiap barang dengan koma.
-
-   Field yang tersedia:
-     nama      : nama barang (wajib)
-     foto      : nama file foto, misal "sepeda.jpg"
-                 Untuk banyak foto, pakai array:
-                 ["foto1.jpg", "foto2.jpg", "foto3.jpg"]
-     harga     : string harga, misal "1800 SEK" atau "Free"
-     label     : "nego" | "fix" | "" (kosong = tanpa label)
-     kondisi   : "baik" | "cukup"
-     status    : "tersedia" | "terjual"
-     soldLabel : (opsional) teks stiker kalau terjual, default "Terjual"
-     desc      : deskripsi barang (gunakan \n untuk baris baru)
-   ──────────────────────────────────────────────────────────── */
-
-const ITEMS = [
-  {
-    nama:    "Jaket Anak Cross Sportswear",
-    foto:    "1. Jaket Anak Cross  Sportswear.jpeg",
-    harga:   "25 Kr",
-    label:   "fix",
-    kondisi: "cukup",
-    status:  "terjual",
-    desc:    "Jaket anak ukuran 134/140. Ada sobek kecil dekat saku, kondisi lainnya masih baik dan hangat."
-  },
-  {
-    nama:    "Jaket Winter Amisu",
-    foto:    "2. Jaket Winter Amisu.jpeg",
-    harga:   "195 Kr",
-    label:   "fix",
-    kondisi: "baik",
-    status:  "tersedia",
-    desc:    "Jaket winter wanita Amisu ukuran 36. Hangat, kondisi bagus."
-  },
-  {
-    nama:    "Peacoat Style KappAhl",
-    foto:    "3,. Peacoat Style KappAhl.jpeg",
-    harga:   "50 Kr",
-    label:   "fix",
-    kondisi: "baik",
-    status:  "terjual",
-    desc:    "Peacoat KappAhl ukuran L (44/46). Gaya klasik, kondisi bagus."
-  },
-  {
-    nama:    "Kemeja MayountFit",
-    foto:    "4, Kemeja MayountFit.jpeg",
-    harga:   "Free",
-    label:   "",
-    kondisi: "baik",
-    status:  "tersedia",
-    desc:    "Kemeja MayountFit ukuran 36. Kondisi bagus."
-  },
-  {
-    nama:    "Kemeja Colorbox",
-    foto:    "5. Kemeja Colorbox.jpeg",
-    harga:   "Free",
-    label:   "",
-    kondisi: "baik",
-    status:  "terjual",
-    desc:    "Kemeja Colorbox ukuran L. Kondisi bagus."
-  },
-  {
-    nama:    "Rok Fashion",
-    foto:    "6. Rok Fashion.jpeg",
-    harga:   "20 Kr",
-    label:   "fix",
-    kondisi: "baik",
-    status:  "terjual",
-    desc:    "Rok fashion all size. Kondisi bagus."
-  },
-  {
-    nama:    "Jean Wanita Perfect Jeans",
-    foto:    "7, Jean Wanita Perfect Jeans.jpeg",
-    harga:   "25 Kr",
-    label:   "fix",
-    kondisi: "baik",
-    status:  "tersedia",
-    desc:    "Jeans wanita Perfect Jeans ukuran 38. Kondisi bagus."
-  },
-  {
-    nama:    "Sweatpants Burgundy",
-    foto:    "8. Sweatpants Burgundy.jpeg",
-    harga:   "15 Kr",
-    label:   "fix",
-    kondisi: "baik",
-    status:  "terjual",
-    desc:    "Sweatpants warna burgundy ukuran M/L. Nyaman untuk santai."
-  },
-  {
-    nama:    "Ankle Pants Kotak Abu",
-    foto:    "9. Ankle Pants Kotak Abu.jpeg",
-    harga:   "16 Kr",
-    label:   "fix",
-    kondisi: "baik",
-    status:  "terjual",
-    desc:    "Ankle pants motif kotak-kotak abu ukuran M/L."
-  },
-  {
-    nama:    "Training Coklat H&M",
-    foto:    "10. Training Coklat H&M.jpeg",
-    harga:   "Free",
-    label:   "",
-    kondisi: "baik",
-    status:  "terjual",
-    desc:    "Celana training H&M warna coklat ukuran M."
-  },
-  {
-    nama:    "Training Navy Nike",
-    foto:    "11. Training Navy Nike.jpeg",
-    harga:   "Free",
-    label:   "",
-    kondisi: "baik",
-    status:  "terjual",
-    desc:    "Celana training Nike warna navy ukuran M."
-  },
-  {
-    nama:    "One-Set Loungewear",
-    foto:    "12. One-Set Loungewear.jpeg",
-    harga:   "100 Kr",
-    label:   "fix",
-    kondisi: "baik",
-    status:  "terjual",
-    desc:    "Set loungewear atas + bawah ukuran M/L. Nyaman untuk di rumah."
-  },
-  {
-    nama:    "Long Sleeve T-Shirt Uniqlo",
-    foto:    "13. Long sleeve T-shirt Uniqlo.jpeg",
-    harga:   "Free",
-    label:   "",
-    kondisi: "baik",
-    status:  "terjual",
-    desc:    "Kaos lengan panjang Uniqlo ukuran M."
-  },
-  {
-    nama:    "Polo Sweatshirt Colorbox",
-    foto:    "14. Polo Sweatshirt Colorbox.jpeg",
-    harga:   "Free",
-    label:   "",
-    kondisi: "baik",
-    status:  "terjual",
-    desc:    "Polo sweatshirt Colorbox ukuran M."
-  },
-  {
-    nama:    "Hoodie Pullover Adidas",
-    foto:    "15. Hoodie Pullover Adidas.jpeg",
-    harga:   "Free",
-    label:   "",
-    kondisi: "baik",
-    status:  "terjual",
-    desc:    "Hoodie pullover Adidas ukuran M."
-  },
-  {
-    nama:    "Jogger Denim Uniqlo",
-    foto:    "16. Jogger Denim Uniqlo.jpeg",
-    harga:   "50 Kr",
-    label:   "fix",
-    kondisi: "baik",
-    status:  "terjual",
-    desc:    "Celana jogger denim Uniqlo ukuran L. Kasual dan nyaman."
-  },
-  {
-    nama:    "Utility Pants H&M Wanita",
-    foto:    "17. Utility Pants H&M.jpeg",
-    harga:   "50 Kr",
-    label:   "fix",
-    kondisi: "baik",
-    status:  "terjual",
-    desc:    "Celana utility H&M ukuran 40. Banyak kantong, praktis."
-  },
-  {
-    nama:    "Denim Pants Line Weekday",
-    foto:    "18. Denim Pants Line Weekday.jpeg",
-    harga:   "25 Kr",
-    label:   "fix",
-    kondisi: "cukup",
-    status:  "terjual",
-    desc:    "Celana denim Weekday ukuran 30. Kancing copot 1, kondisi lainnya bagus."
-  },
-  {
-    nama:    "Celana Panjang Casual Black Cewe",
-    foto:    "19. Celana Panjang Casual Black.jpeg",
-    harga:   "25 Kr",
-    label:   "fix",
-    kondisi: "baik",
-    status:  "tersedia",
-    desc:    "Celana panjang casual hitam ukuran 31/30."
-  },
-  {
-    nama:    "Denim Pants A Day's March",
-    foto:    "20. Denim Pants A Day's March.jpeg",
-    harga:   "25 Kr",
-    label:   "fix",
-    kondisi: "baik",
-    status:  "terjual",
-    desc:    "Celana denim A Day's March ukuran 31. Merek premium Swedia."
-  },
-  {
-    nama:    "Knitted Sweater 157",
-    foto:    "21. Knitted Sweater 157.jpeg",
-    harga:   "15 Kr",
-    label:   "fix",
-    kondisi: "baik",
-    status:  "terjual",
-    desc:    "Sweater rajut ukuran M. Nyaman dan hangat."
-  },
-  {
-    nama:    "Sweatshirt Dress Vailent Purex",
-    foto:    "22. Sweatshirt Dress Vailent Purex.jpeg",
-    harga:   "Free",
-    label:   "",
-    kondisi: "baik",
-    status:  "tersedia",
-    desc:    "Sweatshirt dress Vailent Purex ukuran M."
-  },
-  {
-    nama:    "Sweater Dress Rajut H&M",
-    foto:    "23. Sweater Dress Rajut H&M.jpeg",
-    harga:   "15 Kr",
-    label:   "fix",
-    kondisi: "baik",
-    status:  "terjual",
-    desc:    "Sweater dress rajut H&M ukuran XS."
-  },
-  {
-    nama:    "Jaket Puffer Burgundy Esmara",
-    foto:    "24. Jaket Puffer Burgundy Esmara.jpeg",
-    harga:   "25 Kr",
-    label:   "fix",
-    kondisi: "baik",
-    status:  "terjual",
-    desc:    "Jaket puffer Esmara warna burgundy ukuran M/L."
-  },
-  {
-    nama:    "Puffer Vest Anak",
-    foto:    "25. Puffer Vest Anak Drop.jpeg",
-    harga:   "10 Kr",
-    label:   "fix",
-    kondisi: "baik",
-    status:  "terjual",
-    desc:    "Rompi puffer anak ukuran 146. Ringan dan hangat."
-  },
-  {
-    nama:    "Jaket Softshell S.Oliver",
-    foto:    "26. Jaket Softshell S.Oliver.jpeg",
-    harga:   "10 Kr",
-    label:   "fix",
-    kondisi: "baik",
-    status:  "terjual",
-    desc:    "Jaket softshell S.Oliver ukuran M/152."
-  },
-  {
-    nama:    "Long Overcoat Anak Viaggio Blu",
-    foto:    "27. Long Overcoat Anak Viaggio Blu.jpeg",
-    harga:   "10 Kr",
-    label:   "fix",
-    kondisi: "baik",
-    status:  "terjual",
-    desc:    "Jas panjang anak merek Viaggio Blu. Elegan dan hangat."
-  },
-  {
-    nama:    "Winter Puffer Jacket GapKids",
-    foto:    "28. Winter Puffer Jacket GapKids.jpeg",
-    harga:   "15 Kr",
-    label:   "fix",
-    kondisi: "baik",
-    status:  "terjual",
-    desc:    "Jaket puffer winter GapKids ukuran XXL (160/80)."
-  },
-  {
-    nama:    "Jacket Puffer Parka Winter Smog",
-    foto:    "29. Jacket Puffer Parka Winter Smog.jpeg",
-    harga:   "195 Kr",
-    label:   "nego",
-    kondisi: "baik",
-    status:  "tersedia",
-    desc:    "Jaket puffer parka Smog ukuran L. Kondisi baru, belum banyak dipakai."
-  },
-  {
-    nama:    "Jacket Puffer Winter Amisu",
-    foto:    "30. Jacket Puffer Winter Amisu.jpeg",
-    harga:   "190 Kr",
-    label:   "nego",
-    kondisi: "baik",
-    status:  "terjual",
-    desc:    "Jaket puffer winter Amisu ukuran 36. Kondisi baru, hangat."
-  },
-  {
-    nama:    "Jaket Winter The Duffer (Down Jacket)",
-    foto:    "31. Jaket Winter The Duffer.jpeg",
-    harga:   "15 Kr",
-    label:   "fix",
-    kondisi: "cukup",
-    status:  "terjual",
-    desc:    "Jaket winter The Duffer ukuran L. Kondisi bagus."
-  },
-  {
-    nama:    "Casual Parka Bugatti",
-    foto:    "32. Casual Parka pria Bugatti.jpeg",
-    harga:   "80 Kr",
-    label:   "fix",
-    kondisi: "baik",
-    status:  "terjual",
-    desc:    "Casual parka pria Bugatti big size. Kondisi bagus."
-  },
-  {
-    nama:    "Jaket Winter Anak Fix",
-    foto:    "33. Jaket Winter Anak Fix.jpeg",
-    harga:   "50 Kr",
-    label:   "fix",
-    kondisi: "baik",
-    status:  "terjual",
-    desc:    "Jaket winter anak merek Fix ukuran 134."
-  },
-  {
-    nama:    "Jaket Winter Anak H&M",
-    foto:    "34. Jaket Winter Anak H&M.jpeg",
-    harga:   "50 Kr",
-    label:   "fix",
-    kondisi: "baik",
-    status:  "terjual",
-    desc:    "Jaket winter anak H&M ukuran 128."
-  },
-  {
-    nama:    "Sepeda Monark",
-    foto:    "35. Sepeda Monark.jpeg",
-    harga:   "2000 Kr",
-    label:   "nego",
-    kondisi: "baik",
-    status:  "terjual",
-    desc:    "Sepeda Monark 7 speed. Kondisi bagus, siap pakai."
-  },
-  {
-    nama:    "Sepeda Ortler",
-    foto:    "36. Sepeda Ortler.jpeg",
-    harga:   "450 Kr",
-    label:   "nego",
-    kondisi: "cukup",
-    status:  "terjual",
-    desc:    "Sepeda Ortler 7 speed. Gear patah, perlu perbaikan ringan."
-  },
-  {
-    nama:    "Helm Dewasa",
-    foto:    "37. Helm Dewasa.jpeg",
-    harga:   "50 Kr",
-    label:   "fix",
-    kondisi: "baik",
-    status:  "terjual",
-    desc:    "Helm sepeda dewasa ukuran M/L. Kondisi bagus."
-  },
-  {
-    nama:    "Helm Anak",
-    foto:    "38. Helm Anak.jpeg",
-    harga:   "35 Kr",
-    label:   "fix",
-    kondisi: "baik",
-    status:  "terjual",
-    desc:    "Helm sepeda anak ukuran M."
-  },
-  {
-    nama:    "Sepatu Winter Quechua",
-    foto:    "39. Sepatu Winter Quechua.jpeg",
-    harga:   "Free",
-    label:   "",
-    kondisi: "cukup",
-    status:  "tersedia",
-    desc:    "Sepatu winter Quechua ukuran 41. Ada sedikit terkelupas di bagian luar."
-  },
-  {
-    nama:    "Boots Rantai",
-    foto:    "40. Boots Rantai.jpeg",
-    harga:   "50 Kr",
-    label:   "fix",
-    kondisi: "baik",
-    status:  "tersedia",
-    desc:    "Boots dengan detail rantai ukuran 40. Kondisi bagus."
-  },
-  {
-    nama:    "Boots Rendah Wanita",
-    foto:    "41. Boots Rendah Wanita.jpeg",
-    harga:   "50 Kr",
-    label:   "fix",
-    kondisi: "baik",
-    status:  "tersedia",
-    desc:    "Ankle boots wanita ukuran 41. Kondisi bagus."
-  },
-  {
-    nama:    "Boots Anak Ski Industries",
-    foto:    "42. Boots Anak Ski Industries.jpeg",
-    harga:   "50 Kr",
-    label:   "fix",
-    kondisi: "baik",
-    status:  "terjual",
-    desc:    "Boots anak Ski Industries ukuran 33."
-  },
-  {
-    nama:    "Boots Winter Kulit 5TH Avenue",
-    foto:    "43. Boots Winter Kulit 5TH Avenue.jpeg",
-    harga:   "350 Kr",
-    label:   "nego",
-    kondisi: "baik",
-    status:  "tersedia",
-    desc:    "Boots winter kulit premium 5TH Avenue ukuran 40. Kondisi bagus."
-  },
-  {
-    nama:    "Sepatu Waterproof Anak",
-    foto:    "44. Sepatu Water proof Anak.jpeg",
-    harga:   "Free",
-    label:   "",
-    kondisi: "cukup",
-    status:  "tersedia",
-    desc:    "Sepatu waterproof anak ukuran 33. Sedikit terkelupas di bagian luar."
-  },
-  {
-    nama:    "Sepatu Casual Converse Anak",
-    foto:    "45. Sepatu Casual Concerse Anak.jpeg",
-    harga:   "Free",
-    label:   "",
-    kondisi: "cukup",
-    status:  "terjual",
-    desc:    "Sepatu Converse anak ukuran 33. Tali putus sebelah."
-  },
-  {
-    nama:    "Deep Fryer Siemens",
-    foto:    "46. Deep Fryer Siemens.jpeg",
-    harga:   "Free",
-    label:   "",
-    kondisi: "baik",
-    status:  "terjual",
-    desc:    "Deep fryer Siemens. Kondisi bagus, berfungsi normal."
-  },
-  {
-    nama:    "Pulka Stiga Snowrocket 110",
-    foto:    "47. Pulka Stiga Snowrocket 110.jpeg",
-    harga:   "Free",
-    label:   "",
-    kondisi: "cukup",
-    status:  "terjual",
-    desc:    "Pulka (kereta salju) Stiga Snowrocket 110. Ada bagian yang patah."
-  },
-  {
-    nama:    "Sepeda Jonna",
-    foto:    "sepeda_jonna.jpeg",
-    harga:   "1800 Kr",
-    label:   "nego",
-    kondisi: "baik",
-    status:  "terjual",
-    desc:    "Sepeda Jonna Gear 7 (jarang ada di pasaran), kondisi sangat baik dan siap pakai. Rangka kokoh, komponen original. Minus: tanpa keranjang."
-  },
-  {
-    nama:      "Meja Kerja",
-    foto:      "meja_kerja.jpeg",
-    harga:     "Free",
-    label:     "",
-    kondisi:   "baik",
-    status:    "terjual",
-    soldLabel: "Booked",
-    desc:      "Maaf sudah ada yang booking, masih ada barang free yang lainnya ya."
-  },
-  {
-    nama:    "Celana Winter Wanita",
-    foto:    "celana_winter_cewek.jpg",
-    harga:   "99 Kr",
-    label:   "fix",
-    kondisi: "baik",
-    status:  "terjual",
-    desc:    "Celana winter wanita Cross Sportswear size L. Tebal, hangat, windproof. Pernah dipakai di Kiruna & Rovaniemi."
-  },
-  {
-    nama:    "Printer Epson ET 2865",
-    foto:    "printer.jpeg",
-    harga:   "999 Kr",
-    label:   "fix",
-    kondisi: "baik",
-    status:  "tersedia",
-    desc:    "Printer Epson ET 2865, Wifi, Smart Tank, no Garansi. Kondisi bagus, berfungsi normal."
-  },
-  {
-    nama:    "Overall Anak McKinley",
-    foto:    "overall_anak.jpeg",
-    harga:   "39 Kr",
-    label:   "fix",
-    kondisi: "cukup",
-    status:  "terjual",
-    desc:    "Overall anak McKinley ukuran 120. Cocok untuk winter, hangat dan nyaman."
-  },
-  {
-    nama:    "Baju Wanita Minimal",
-    foto:    "baju_wanita_minimal.jpeg",
-    harga:   "19 Kr",
-    label:   "fix",
-    kondisi: "cukup",
-    status:  "tersedia",
-    desc:    "Baju wanita merek Minimal ukuran 36 (EUR)."
-  },
-  {
-    nama:    "Jaket Anak Pink North Bend",
-    foto:    "jaket_anak_pink.jpeg",
-    harga:   "29 Kr",
-    label:   "fix",
-    kondisi: "cukup",
-    status:  "terjual",
-    desc:    "Jaket winter anak warna pink North Bend ukuran 110. Hangat, kondisi baik."
-  },
-  {
-    nama:    "Celana Outdoor Winter Unisex L - Cross Sportswear",
-    foto:    "celana_outdoor_winter_unisex_L.jpeg",
-    harga:   "69 Kr",
-    label:   "fix",
-    kondisi: "cukup",
-    status:  "terjual",
-    desc:    "Celana winter Cross Sportswear ukuran L, unisex. Tebal, tahan angin, suspender adjustable."
-  },
-  {
-    nama:    "Celana Outdoor Winter Unisex M - Cross Sportswear",
-    foto:    "celana_outdoor_winter_unisex_L.jpeg",
-    harga:   "69 Kr",
-    label:   "fix",
-    kondisi: "cukup",
-    status:  "terjual",
-    desc:    "Celana winter Cross Sportswear ukuran M, unisex. Tebal, tahan angin, suspender adjustable."
-  },
-  {
-    nama:    "Rompi Winter Man Size L - Juste",
-    foto:    "rompi_winter_unisex_L.jpeg",
-    harga:   "19 Kr",
-    label:   "fix",
-    kondisi: "cukup",
-    status:  "terjual",
-    desc:    "Rompi winter Juste ukuran L. Hangat, cocok untuk layering sehari-hari."
-  },
-  {
-    nama:    "Jaket Wanita Size L - Neomondo",
-    foto:    "jaket_neomondo.jpeg",
-    harga:   "29 Kr",
-    label:   "fix",
-    kondisi: "cukup",
-    status:  "terjual",
-    desc:    "Jaket Neomondo ukuran L. Kondisi baik, cocok untuk outdoor ringan."
-  },
-  {
-    nama:    "Celana Overall Anak Ocean Works",
-    foto:    "celana_overall_anak_ocean_works.jpeg",
-    harga:   "29 Kr",
-    label:   "fix",
-    kondisi: "cukup",
-    status:  "tersedia",
-    desc:    "Overall anak Ocean Works ukuran 134/140, waterproof. Suspender adjustable, ada reflektor di bagian bawah."
-  },
-  {
-    nama:    "Ice Skate Pria Easton E8",
-    foto:    "skating_cowok_43eur_90SEK.jpeg",
-    harga:   "90 Kr",
-    label:   "fix",
-    kondisi: "baik",
-    status:  "terjual",
-    desc:    "Sepatu ice skating pria Easton E8 ukuran 43 EUR. Kondisi bagus, siap pakai."
-  },
-  {
-    nama:    "Ice Skate Wanita SP",
-    foto:    "skating_cewek_40eur_120SEK.jpeg",
-    harga:   "120 Kr",
-    label:   "fix",
-    kondisi: "baik",
-    status:  "terjual",
-    desc:    "Sepatu ice skating wanita SP ukuran 40 EUR. Termasuk blade guard JOFA. Kondisi bagus."
-  },
-  {
-    nama:    "Ice Skate Unisex Oxelo",
-    foto:    "skating_all_40eur_90SEK.jpeg",
-    harga:   "90 Kr",
-    label:   "fix",
-    kondisi: "baik",
-    status:  "tersedia",
-    desc:    "Sepatu ice skating Oxelo (Decathlon) ukuran 40 EUR, unisex. Kondisi bagus."
-  },
-  {
-    nama:    "Ice Skate Anak CCM",
-    foto:    "skating_anak_35eur_60SEK.jpeg",
-    harga:   "60 Kr",
-    label:   "fix",
-    kondisi: "baik",
-    status:  "tersedia",
-    desc:    "Sepatu ice skating anak CCM ukuran 35 EUR. Warna pink, kondisi bagus."
-  },
-  {
-    nama:    "Microwave Whirlpool Crisp",
-    foto:    "microwave_whrilpool_100SEK.jpeg",
-    harga:   "100 Kr",
-    label:   "fix",
-    kondisi: "baik",
-    status:  "terjual",
-    desc:    "Microwave Whirlpool dengan fitur Crisp & Grill. Kondisi bagus, berfungsi normal."
-  },
-  {
-    nama:    "Rice Cooker Russell Hobbs",
-    foto:    "ricecooker_russelHobbs_teflonkelupas_80SEK.jpeg",
-    harga:   "80 Kr",
-    label:   "fix",
-    kondisi: "cukup",
-    status:  "terjual",
-    desc:    "Rice cooker Russell Hobbs. Berfungsi normal, lapisan teflon dalam agak terkelupas."
-  },
-];
-
-/* ═══════════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════
+   KONFIGURASI — edit items.csv untuk tambah/ubah barang
+   ═══════════════════════════════════════════════════════════ */
+const NO_AYAH  = '628117545544';
+const NO_BUNDA = '628116909706';
+const WA_NUMBER = NO_BUNDA;  // ← ganti ke NO_AYAH jika perlu
 
 const WA_ICON = `<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>`;
 
 // ── Kategorisasi otomatis ──
 function getKat(item) {
-  if (item.kat) return item.kat;           // eksplisit dari data
+  if (item.kat) return item.kat;
   const n = item.nama.toLowerCase();
-  if (/sepeda|jonna/.test(n))                                           return 'sepeda';
-  if (/helm/.test(n))                                                   return 'sepeda';
-  if (/skate|skating/.test(n))                                          return 'sepatu-acc';
-  if (/sepatu|boots|boot/.test(n))                                      return 'sepatu-acc';
-  if (/pulka/.test(n))                                                  return 'sepatu-acc';
+  if (/sepeda|jonna/.test(n))                                              return 'sepeda';
+  if (/helm/.test(n))                                                      return 'sepeda';
+  if (/skate|skating/.test(n))                                             return 'sepatu-acc';
+  if (/sepatu|boots|boot/.test(n))                                         return 'sepatu-acc';
+  if (/pulka/.test(n))                                                     return 'sepatu-acc';
   if (/microwave|rice cooker|deep fryer|fryer|printer|elektronik/.test(n)) return 'elektronik';
   if (/jaket|jacket|peacoat|kemeja|celana|baju|rok|sweater|hoodie|jogger|pants|sweatpants|training|overall|loungewear|t-shirt|polo|parka|vest|rompi|dress|overcoat|puffer|cardigan/.test(n)) return 'pakaian';
   return 'lainnya';
 }
 
-// ── Render cards dari ITEMS ──
-const grid = document.getElementById('grid');
-const ALL_ITEMS = [
-  ...ITEMS,
-  ...(typeof ITEMS_BARU  !== 'undefined' ? ITEMS_BARU  : []),
-  ...(typeof ITEMS_BARU3 !== 'undefined' ? ITEMS_BARU3 : []),
-  ...(typeof ITEMS_BARU4 !== 'undefined' ? ITEMS_BARU4 : []),
-];
+// ── CSV parser (RFC 4180) ──
+function parseCSV(text) {
+  const rows = [];
+  const src  = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+  let cur = '', inQ = false, fields = [], headers = null;
 
-const tersedia  = ALL_ITEMS.filter(it => it.status === 'tersedia');
-const giveaway  = tersedia.filter(it => it.harga === 'Free');
-document.getElementById('count-tersedia').textContent = tersedia.length + ' barang';
-document.getElementById('count-free').textContent     = giveaway.length + ' barang';
-
-ALL_ITEMS.forEach((item, i) => {
-  const num     = String(i + 1).padStart(2, '0');
-  const isSold  = item.status === 'terjual';
-  const kondisi = item.kondisi || 'baik';
-  const photos  = (Array.isArray(item.foto) ? item.foto : (item.foto ? [item.foto] : []))
-                  .map(f => f.includes('/') ? f : 'barang old/' + f);
-
-  const stickerClass = isSold ? 'terjual' : `kondisi-${kondisi}`;
-  const stickerText  = isSold
-    ? `✕ ${item.soldLabel || 'Terjual'}`
-    : kondisi === 'baik' ? '● Baik' : '◐ Cukup';
-
-  const imgMarkup = photos.length
-    ? `<div class="card-img-wrap"
-            data-photos='${JSON.stringify(photos)}'
-            data-nama="${item.nama.replace(/"/g, '&quot;')}">
-         <img class="card-img" src="${photos[0]}" alt="${item.nama}" loading="lazy"/>
-       </div>`
-    : `<div class="card-img-placeholder">📦</div>`;
-
-  const priceMarkup = item.label
-    ? `<p class="card-price">${item.harga} <span>${item.label}</span></p>`
-    : `<p class="card-price">${item.harga}</p>`;
-
-  const baseUrl = window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '');
-  const firstPhoto = photos.length ? baseUrl + '/' + photos[0].split('/').map(encodeURIComponent).join('/') : '';
-  const msgLines = [`Halo Ardian! Saya tertarik dengan *${item.nama}* (${item.harga}) 😊`];
-  if (firstPhoto) msgLines.push(`\nFoto: ${firstPhoto}`);
-  const msg   = encodeURIComponent(msgLines.join('\n'));
-  const waBtn = !isSold
-    ? `<a class="wa-btn" href="https://wa.me/${WA_NUMBER}?text=${msg}" target="_blank">${WA_ICON} Chat di WhatsApp</a>`
-    : '';
-
-  const div = document.createElement('div');
-  div.className = `card${isSold ? ' sold' : ''}`;
-  div.dataset.kondisi = kondisi;
-  div.dataset.status  = item.status;
-  div.dataset.kat     = getKat(item);
-  div.innerHTML = `
-    <div class="card-num">${num}</div>
-    <span class="sticker ${stickerClass}">${stickerText}</span>
-    ${imgMarkup}
-    <div class="card-body">
-      <h2 class="card-name">${item.nama}</h2>
-      <p class="card-desc">${item.desc || ''}</p>
-      ${priceMarkup}
-      ${waBtn}
-    </div>`;
-  grid.appendChild(div);
-});
-
-// ── Lightbox ──
-const lightbox = document.getElementById('lightbox');
-const lbImg    = document.getElementById('lightbox-img');
-const lbCap    = document.getElementById('lightbox-caption');
-const lbDots   = document.getElementById('lightbox-dots');
-const lbClose  = document.getElementById('lightbox-close');
-let lbPhotos = [], lbIndex = 0;
-
-function showPhoto(idx) {
-  lbIndex = idx;
-  lbImg.src = lbPhotos[idx];
-  lbDots.querySelectorAll('.lb-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+  for (let i = 0; i <= src.length; i++) {
+    const c = i < src.length ? src[i] : '\n';
+    if (inQ) {
+      if (c === '"' && src[i + 1] === '"') { cur += '"'; i++; }
+      else if (c === '"') inQ = false;
+      else cur += c;
+    } else if (c === '"') {
+      inQ = true;
+    } else if (c === ',') {
+      fields.push(cur); cur = '';
+    } else if (c === '\n') {
+      fields.push(cur); cur = '';
+      if (!headers) {
+        headers = fields;
+      } else if (fields.some(f => f !== '')) {
+        const obj = {};
+        headers.forEach((h, j) => { obj[h] = fields[j] || ''; });
+        rows.push(obj);
+      }
+      fields = [];
+    } else {
+      cur += c;
+    }
+  }
+  return rows;
 }
 
-function openLightbox(photos, nama, startIdx = 0) {
-  lbPhotos = photos;
-  lbCap.textContent = nama;
-
-  // build dots only if multiple photos
-  lbDots.innerHTML = photos.length > 1
-    ? photos.map((_, i) => `<button class="lb-dot${i===startIdx?' active':''}" data-i="${i}"></button>`).join('')
-    : '';
-
-  lbImg.src = photos[startIdx];
-  lbIndex   = startIdx;
-  lightbox.classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeLightbox() {
-  lightbox.classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-// open on image click
-document.getElementById('grid').addEventListener('click', e => {
-  const wrap = e.target.closest('.card-img-wrap[data-photos]');
-  if (!wrap) return;
-  const photos = JSON.parse(wrap.dataset.photos);
-  const nama   = wrap.dataset.nama;
-  openLightbox(photos, nama);
-});
-
-// dot navigation
-lbDots.addEventListener('click', e => {
-  const dot = e.target.closest('.lb-dot');
-  if (dot) showPhoto(Number(dot.dataset.i));
-});
-
-// arrow key navigation
-document.addEventListener('keydown', e => {
-  if (!lightbox.classList.contains('open')) return;
-  if (e.key === 'Escape')      closeLightbox();
-  if (e.key === 'ArrowRight')  showPhoto((lbIndex + 1) % lbPhotos.length);
-  if (e.key === 'ArrowLeft')   showPhoto((lbIndex - 1 + lbPhotos.length) % lbPhotos.length);
-});
-
-lbClose.addEventListener('click', closeLightbox);
-lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
-
-// ── Filter ──
+// ── Filter state ──
 let activeKat    = 'all';
 let activeStatus = 'tersedia';
 
 function applyFilters() {
   document.querySelectorAll('.card').forEach(card => {
-    const katOk    = activeKat === 'all' || card.dataset.kat    === activeKat;
+    const katOk    = activeKat    === 'all' || card.dataset.kat    === activeKat;
     const statusOk = activeStatus === 'all' || card.dataset.status === activeStatus;
     card.classList.toggle('hidden', !(katOk && statusOk));
   });
@@ -1289,8 +585,57 @@ document.querySelectorAll('.filter-status').forEach(tag => {
   });
 });
 
-applyFilters(); // terapkan filter default saat halaman pertama load
+// ── Lightbox ──
+const lightbox = document.getElementById('lightbox');
+const lbImg    = document.getElementById('lightbox-img');
+const lbCap    = document.getElementById('lightbox-caption');
+const lbDots   = document.getElementById('lightbox-dots');
+const lbClose  = document.getElementById('lightbox-close');
+let lbPhotos = [], lbIndex = 0;
 
+function showPhoto(idx) {
+  lbIndex = idx;
+  lbImg.src = lbPhotos[idx];
+  lbDots.querySelectorAll('.lb-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+}
+
+function openLightbox(photos, nama, startIdx = 0) {
+  lbPhotos = photos;
+  lbCap.textContent = nama;
+  lbDots.innerHTML = photos.length > 1
+    ? photos.map((_, i) => `<button class="lb-dot${i === startIdx ? ' active' : ''}" data-i="${i}"></button>`).join('')
+    : '';
+  lbImg.src = photos[startIdx];
+  lbIndex   = startIdx;
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('grid').addEventListener('click', e => {
+  const wrap = e.target.closest('.card-img-wrap[data-photos]');
+  if (!wrap) return;
+  openLightbox(JSON.parse(wrap.dataset.photos), wrap.dataset.nama);
+});
+
+lbDots.addEventListener('click', e => {
+  const dot = e.target.closest('.lb-dot');
+  if (dot) showPhoto(Number(dot.dataset.i));
+});
+
+document.addEventListener('keydown', e => {
+  if (!lightbox.classList.contains('open')) return;
+  if (e.key === 'Escape')     closeLightbox();
+  if (e.key === 'ArrowRight') showPhoto((lbIndex + 1) % lbPhotos.length);
+  if (e.key === 'ArrowLeft')  showPhoto((lbIndex - 1 + lbPhotos.length) % lbPhotos.length);
+});
+
+lbClose.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
 
 // ── Go to top ──
 const goTop = document.getElementById('go-top');
@@ -1307,6 +652,77 @@ document.addEventListener('mousemove', e => {
     b.style.transform = `translate(${x*d*.4}px,${y*d*.4}px)`;
   });
 });
+
+// ── Load & render dari items.csv ──
+async function init() {
+  const resp = await fetch('items.csv');
+  const ALL_ITEMS = parseCSV(await resp.text());
+
+  const tersedia = ALL_ITEMS.filter(it => it.status === 'tersedia');
+  const giveaway = tersedia.filter(it => it.harga === 'Free');
+  document.getElementById('count-tersedia').textContent = tersedia.length + ' barang';
+  document.getElementById('count-free').textContent     = giveaway.length + ' barang';
+
+  const grid = document.getElementById('grid');
+  ALL_ITEMS.forEach((item, i) => {
+    const num     = String(i + 1).padStart(2, '0');
+    const isSold  = item.status === 'terjual';
+    const kondisi = item.kondisi || 'baik';
+
+    // foto: JSON array atau string tunggal; tambah prefix jika belum ada /
+    let photos;
+    try { photos = JSON.parse(item.foto); if (!Array.isArray(photos)) throw 0; }
+    catch { photos = item.foto ? [item.foto] : []; }
+    photos = photos.map(f => f.includes('/') ? f : 'barang old/' + f);
+
+    const stickerClass = isSold ? 'terjual' : `kondisi-${kondisi}`;
+    const stickerText  = isSold
+      ? `✕ ${item.soldLabel || 'Terjual'}`
+      : kondisi === 'baik' ? '● Baik' : '◐ Cukup';
+
+    const imgMarkup = photos.length
+      ? `<div class="card-img-wrap"
+              data-photos='${JSON.stringify(photos)}'
+              data-nama="${item.nama.replace(/"/g, '&quot;')}">
+           <img class="card-img" src="${photos[0]}" alt="${item.nama}" loading="lazy"/>
+         </div>`
+      : `<div class="card-img-placeholder">📦</div>`;
+
+    const priceMarkup = item.label
+      ? `<p class="card-price">${item.harga} <span>${item.label}</span></p>`
+      : `<p class="card-price">${item.harga}</p>`;
+
+    const baseUrl    = window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '');
+    const firstPhoto = photos.length ? baseUrl + '/' + photos[0].split('/').map(encodeURIComponent).join('/') : '';
+    const msgLines   = [`Halo Ardian! Saya tertarik dengan *${item.nama}* (${item.harga}) 😊`];
+    if (firstPhoto) msgLines.push(`\nFoto: ${firstPhoto}`);
+    const msg   = encodeURIComponent(msgLines.join('\n'));
+    const waBtn = !isSold
+      ? `<a class="wa-btn" href="https://wa.me/${WA_NUMBER}?text=${msg}" target="_blank">${WA_ICON} Chat di WhatsApp</a>`
+      : '';
+
+    const div = document.createElement('div');
+    div.className      = `card${isSold ? ' sold' : ''}`;
+    div.dataset.kondisi = kondisi;
+    div.dataset.status  = item.status;
+    div.dataset.kat     = getKat(item);
+    div.innerHTML = `
+      <div class="card-num">${num}</div>
+      <span class="sticker ${stickerClass}">${stickerText}</span>
+      ${imgMarkup}
+      <div class="card-body">
+        <h2 class="card-name">${item.nama}</h2>
+        <p class="card-desc">${item.desc || ''}</p>
+        ${priceMarkup}
+        ${waBtn}
+      </div>`;
+    grid.appendChild(div);
+  });
+
+  applyFilters();
+}
+
+init();
 </script>
 </body>
 </html>

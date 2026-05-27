@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════
-   ITEMS BARU 3 — data terpisah, di-merge otomatis ke halaman utama
+   ITEMS BARU 3 — data terpisah, di-merge otomatis  halaman utama
    Foto ada di subfolder  baru3/
    ═══════════════════════════════════════════════════════════ */
 
